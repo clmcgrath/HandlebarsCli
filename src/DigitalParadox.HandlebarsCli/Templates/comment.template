@@ -1,0 +1,19 @@
+﻿<#
+	.SYNOPSIS  
+	{{ SYNOPSIS }}
+	
+	.DESCRIPTION 
+	{{ DESCRIPTION }}
+	
+	.PARAMETER 
+	{{ PARAMETER }}
+	
+	.EXAMPLE 
+	{{ EXAMPLE }}
+	
+	.NOTES 
+	{{ NOTES }}
+	
+	.LINK 
+	{{ LINK }}
+#>

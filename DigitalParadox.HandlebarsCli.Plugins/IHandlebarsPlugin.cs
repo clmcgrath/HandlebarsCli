@@ -15,16 +15,8 @@ namespace DigitalParadox.HandlebarsCli.Plugins
     {
         string Name { get; set; }
         string Execute(dynamic data);
-        string Execute(TextWriter writer, dynamic data, params object[] args);
         string Execute(TextWriter writer, HelperOptions options,  dynamic data, params object[] args);
 
-    }
-
-    public interface IHandlebarsBlockPlugin : IProvider
-    {
-        string Name { get; set; }
-        string Execute(dynamic data);
-        Hand Execute();
     }
 
 

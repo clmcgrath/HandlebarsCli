@@ -4,6 +4,7 @@ using System.IO;
 using DigitalParadox.HandlebarsCli.Models;
 using DigitalParadox.HandlebarsCli.Plugins;
 using HandlebarsDotNet;
+using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.ServiceLocation;
 using Newtonsoft.Json;
 
@@ -15,7 +16,7 @@ namespace DigitalParadox.HandlebarsCli
         public ICollection<IHandlebarsPlugin> Plugins { get; }
 
 
-        public Application(Options options, ICollection<IHandlebarsPlugin> plugins )
+        public Application(Options options, List<IHandlebarsPlugin> plugins )
         {
             Options = options;
             Plugins = plugins;
@@ -23,7 +24,10 @@ namespace DigitalParadox.HandlebarsCli
 
         public void Run()
         {
-                        Handlebars.RegisterHelper();
+                        Plugins.ForEach(p => Handlebars.RegisterHelper(
+                            p.Name,
+                            (writer, options, context, arguments) => p.Execute(writer, options, context, arguments)));
+
                         var psComment = File.ReadAllText(Options.Template);
             
                         var template = Handlebars.Compile(psComment);

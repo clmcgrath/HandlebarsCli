@@ -25,9 +25,6 @@ namespace DigitalParadox.ScriptRunner
         public virtual void Setup()
         {
             ServiceLocator.SetLocatorProvider(() => new UnityServiceLocator(this));
-
-            Console.WindowWidth = 120;
-
             var actionProviders = HandlebarsCli.Plugins.Providers.GetProviders<IHandlebarsPlugin>();
             //var configProviders = Providers.Providers.GetProviders<IConfigurationProvider>();
 

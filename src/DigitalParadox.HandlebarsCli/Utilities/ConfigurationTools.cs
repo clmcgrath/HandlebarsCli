@@ -6,7 +6,6 @@ namespace DigitalParadox.HandlebarsCli.Utilities
 {
     public static class ConfigurationTools
     {
-
         public static Configuration LoadAppConfig()
         {
             var json = File.ReadAllText("config.json");

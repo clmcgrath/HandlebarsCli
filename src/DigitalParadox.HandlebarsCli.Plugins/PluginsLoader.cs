@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using DigitalParadox.HandlebarsCli.Plugins.Helpers;
 
 namespace DigitalParadox.HandlebarsCli.Plugins
 {
     public static class PluginsLoader
     {
-
         internal static IEnumerable<Type> GetPluginCollection<T>(this IEnumerable<Assembly> assemblies)
             where T : IProvider
         {
-            return assemblies.SelectMany(a => GetPluginCollection<T>((Assembly) a).Where(q=>!q.IsInterface));
+            return assemblies.SelectMany(a => GetPluginCollection<T>(a).Where(q => !q.IsInterface));
         }
 
         internal static IEnumerable<Type> GetPluginCollection<T>(this Assembly assembly)
@@ -31,9 +31,7 @@ namespace DigitalParadox.HandlebarsCli.Plugins
             {
                 var pInfo = type.GetCustomAttribute(typeof(PluginInfoAttribute)) as PluginInfoAttribute;
                 if (!string.IsNullOrWhiteSpace(pInfo?.Name))
-                {
                     dictionary.Add(pInfo.Name, type);
-                }
 
                 dictionary.Add(type.FullName, type);
             }
@@ -41,17 +39,14 @@ namespace DigitalParadox.HandlebarsCli.Plugins
         }
 
         public static IDictionary<string, Type> GetPlugins<T>(this Assembly assembly)
-            where T:IProvider
+            where T : IProvider
         {
-            Dictionary<string, Type> dictionary = new Dictionary<string, Type>();
+            var dictionary = new Dictionary<string, Type>();
             foreach (var type in assembly.GetPluginCollection<T>())
             {
-
-                PluginInfoAttribute pInfo = type.GetCustomAttribute(typeof(PluginInfoAttribute)) as PluginInfoAttribute;
+                var pInfo = type.GetCustomAttribute(typeof(PluginInfoAttribute)) as PluginInfoAttribute;
                 if (!string.IsNullOrWhiteSpace(pInfo?.Name))
-                {
                     dictionary.Add(pInfo.Name, type);
-                }
 
                 dictionary.Add(type.FullName, type);
             }
@@ -61,7 +56,6 @@ namespace DigitalParadox.HandlebarsCli.Plugins
         public static IDictionary<string, Type> GetPlugins<T>(this IEnumerable<Assembly> assemblies)
             where T : IProvider
         {
-            
             return null;
         }
     }

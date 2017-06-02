@@ -8,11 +8,11 @@ namespace DigitalParadox.HandlebarsCli.Plugins
     public static class AssemblyLoader
     {
         /// <summary>
-        /// Search Assembly and return specified types the deririve from given type
+        ///     Search Assembly and return specified types the deririve from given type
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="assembly">Assembly to search</param>
-        /// <returns>Collection of derived types of <see cref="T"/></returns>
+        /// <returns>Collection of derived types of <see cref="T" /></returns>
         public static IEnumerable<Type> FindDerivedTypes<T>(Assembly assembly)
         {
             //if (typeof(T).IsInterface)
@@ -23,7 +23,7 @@ namespace DigitalParadox.HandlebarsCli.Plugins
         }
 
         /// <summary>
-        /// Get collection of assembly that contain types derived from <see cref="T"/>
+        ///     Get collection of assembly that contain types derived from <see cref="T" />
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
@@ -35,14 +35,14 @@ namespace DigitalParadox.HandlebarsCli.Plugins
         }
 
         /// <summary>
-        /// Find All Derived Types of <see cref="T"/>in a collection of assemblies 
+        ///     Find All Derived Types of <see cref="T" />in a collection of assemblies
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="assemblies"></param>
         /// <returns></returns>
         public static IEnumerable<Type> GetTypes<T>(this Assembly assembly)
         {
-            return GetTypes<T>(new List<Assembly> { assembly });
+            return GetTypes<T>(new List<Assembly> {assembly});
         }
 
         public static IEnumerable<Type> GetTypes<T>(this IEnumerable<Assembly> assemblies)
@@ -52,17 +52,12 @@ namespace DigitalParadox.HandlebarsCli.Plugins
 
         public static IEnumerable<Type> GetTypes<T>(string nameOrFile = null)
         {
-
             if (nameOrFile == null)
-            {
                 return GetAssemblies<T>().GetTypes<T>();
-            }
             var assembly = Assembly.LoadFrom(nameOrFile);
 
             var types = FindDerivedTypes<T>(assembly);
             return types.Where(q => !q.IsAbstract && !q.IsInterface);
         }
-        
-
     }
 }

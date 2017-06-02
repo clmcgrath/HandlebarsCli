@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace DigitalParadox.HandlebarsCli.Plugins
+namespace DigitalParadox.HandlebarsCli.Plugins.Helpers
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Struct, Inherited = false)]
     public class PluginInfoAttribute : Attribute
@@ -9,7 +9,7 @@ namespace DigitalParadox.HandlebarsCli.Plugins
         public string Description { get; set; }
         public string Name { get; set; }
         public string DisplayName { get; set; }
-        public PluginType PluginType { get; set; } = PluginType.Inline;
+        public HelperType HelperType { get; set; } = HelperType.Inline;
 
         public string GetDisplayName(object obj, string template)
         {
@@ -30,6 +30,5 @@ namespace DigitalParadox.HandlebarsCli.Plugins
             });
             return displayName;
         }
-
     }
 }

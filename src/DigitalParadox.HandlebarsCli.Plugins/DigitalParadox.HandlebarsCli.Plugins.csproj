@@ -45,16 +45,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyLoader.cs" />
-    <Compile Include="HelloWorldExamplePlugin.cs" />
+    <Compile Include="Extensions\MetaDataExtensions.cs" />
+    <Compile Include="Helpers\HelloWorldExamplePlugin.cs" />
     <Compile Include="IHandlebarsHelper.cs" />
-    <Compile Include="IHandlebarsPlugin.cs" />
+    <Compile Include="Helpers\HelperType.cs" />
     <Compile Include="IProvider.cs" />
+    <Compile Include="Helpers\PluginInfoAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PluginInfoAttribute.cs" />
     <Compile Include="PluginsLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Templates\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

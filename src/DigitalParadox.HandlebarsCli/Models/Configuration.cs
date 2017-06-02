@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DigitalParadox.HandlebarsCli.Plugins;
+﻿using System.Collections.Generic;
 
 namespace DigitalParadox.HandlebarsCli.Models
 {
@@ -13,6 +8,7 @@ namespace DigitalParadox.HandlebarsCli.Models
         {
             PluginDirectories = new List<string>();
         }
+
         public ICollection<string> PluginDirectories { get; set; }
     }
 }

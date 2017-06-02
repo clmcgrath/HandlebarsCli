@@ -2,7 +2,7 @@
 using DigitalParadox.HandlebarsCli.Models;
 using Newtonsoft.Json;
 
-namespace DigitalParadox.ScriptRunner
+namespace DigitalParadox.HandlebarsCli.Utilities
 {
     public static class ConfigurationTools
     {

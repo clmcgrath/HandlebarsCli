@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Linq;
 
-namespace DigitalParadox.Providers.Actions
+namespace DigitalParadox.HandlebarsCli.Plugins
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Struct, Inherited = false)]
-    public class ProviderInfoAttribute : Attribute
+    public class PluginInfoAttribute : Attribute
     {
         public string Description { get; set; }
         public string Name { get; set; }
         public string DisplayName { get; set; }
+        public PluginType PluginType { get; set; } = PluginType.Inline;
 
         public string GetDisplayName(object obj, string template)
         {

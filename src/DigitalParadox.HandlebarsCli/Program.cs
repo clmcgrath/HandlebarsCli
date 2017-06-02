@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
 using DigitalParadox.HandlebarsCli;
+using DigitalParadox.HandlebarsCli.Utilities;
 using Microsoft.Practices.Unity;
 
 namespace DigitalParadox.ScriptRunner

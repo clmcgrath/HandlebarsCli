@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using DigitalParadox.Providers.Actions;
-using DigitalParadox.Providers.Interfaces;
 
 namespace DigitalParadox.HandlebarsCli.Plugins
 {
@@ -67,66 +65,4 @@ namespace DigitalParadox.HandlebarsCli.Plugins
         
 
     }
-
-    public static class Providers
-    {
-
-        internal static IEnumerable<Type> GetProviderCollection<T>(this IEnumerable<Assembly> assemblies)
-            where T : IProvider
-        {
-            return assemblies.SelectMany(a => a.GetProviderCollection<T>().Where(q=>!q.IsInterface));
-        }
-
-        internal static IEnumerable<Type> GetProviderCollection<T>(this Assembly assembly)
-            where T : IProvider
-        {
-            return AssemblyLoader.GetTypes<T>();
-        }
-
-        public static IDictionary<string, Type> GetProviders<T>()
-            where T : IProvider
-        {
-            var types = AssemblyLoader.GetAssemblies<T>().GetProviderCollection<T>();
-
-            var dictionary = new Dictionary<string, Type>();
-
-            foreach (var type in types)
-            {
-                var pInfo = type.GetCustomAttribute(typeof(ProviderInfoAttribute)) as ProviderInfoAttribute;
-                if (!string.IsNullOrWhiteSpace(pInfo?.Name))
-                {
-                    dictionary.Add(pInfo.Name, type);
-                }
-
-                dictionary.Add(type.FullName, type);
-            }
-            return dictionary;
-        }
-
-        public static IDictionary<string, Type> GetProviders<T>(this Assembly assembly)
-            where T:IProvider
-        {
-            Dictionary<string, Type> dictionary = new Dictionary<string, Type>();
-            foreach (var type in assembly.GetProviderCollection<T>())
-            {
-
-                ProviderInfoAttribute pInfo = type.GetCustomAttribute(typeof(ProviderInfoAttribute)) as ProviderInfoAttribute;
-                if (!string.IsNullOrWhiteSpace(pInfo?.Name))
-                {
-                    dictionary.Add(pInfo.Name, type);
-                }
-
-                dictionary.Add(type.FullName, type);
-            }
-            return dictionary;
-        }
-
-        public static IDictionary<string, Type> GetProviders<T>(this IEnumerable<Assembly> assemblies)
-            where T : IProvider
-        {
-            
-            return null;
-        }
-    }
-
 }

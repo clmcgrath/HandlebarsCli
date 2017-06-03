@@ -36,7 +36,9 @@ or you can privide your own directories at the commandline
 
 ## Contributing 
 I am open to contributions from the community 
+
 if you would like to see a feature added fork me and submit a pull request or open an issue 
+
 if you have built a plugin and would like to see it listed here open an issue with the title Add Plugin {Name} to listing  
 
 

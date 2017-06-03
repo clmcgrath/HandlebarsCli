@@ -18,3 +18,29 @@ or you can privide your own directories at the commandline
 | -h          | --help          |                               | Display this help screen.                                         |
 |             | --version       |                               | Display version information.                                      |
 | pos[0] NAME |                 | Required                      | Template Name to use for output, ie pscomment.hbs                 |  
+
+
+## Roadmap 
+
+### 1.0  
+* Fix Existing Bugs 
+* Stabilize /optimize  rendering engine
+* Build msi installer
+* Add Chocolatey Support 
+
+### 2.0 
+* Add Support for writing helpers in .cs & .csx
+* Add Support for directory initialization / project creation 
+* Add Support for adding views / templates / partials via command line 
+* Helper installation support, Likely nuget based 
+
+## Contributing 
+I am open to contributions from the community 
+if you would like to see a feature added fork me and submit a pull request or open an issue 
+if you have built a plugin and would like to see it listed here open an issue with the title Add Plugin {Name} to listing  
+
+
+
+
+
+

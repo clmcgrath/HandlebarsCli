@@ -19,6 +19,35 @@ or you can privide your own directories at the commandline
 |             | --version       |                               | Display version information.                                      |
 | pos[0] NAME |                 | Required                      | Template Name to use for output, ie pscomment.hbs                 |  
 
+## Syntax 
+
+### Templates 
+>For Handlebars Syntax support please see the handlebars website [Here](http://handlebarsjs.com)
+
+### Plugins 
+Nuget Packaging is coming for the pugins sdk soon!
+
+To create an external plugin create 
+1. Create a class library project 
+2. Install the Digitalparadox.HandlebarsCli.Plugins package 
+3. Implement the IHandlebarsPlugin interface 
+```csharp
+public class MyPlugin : HandlebarsCli.Plugins.IHandlebarsHelper
+{
+    public string Name { get; set; } = "HelloWorldHelperExample";
+    public HelperType Type { get; set; } = HelperType.Inline;
+
+    public string Execute(TextWriter writer, HelperOptions options, dynamic data, params object[] args)
+    {
+        return "Hello World!!";
+    }
+}
+```
+
+4. Build and add .dll to .\Plugins Directory 
+
+5. Profit
+
 
 ## Roadmap 
 

@@ -65,6 +65,7 @@ namespace DigitalParadox.HandlebarsCli
                 Console.WriteLine(result);
                 return;
             }
+
             //otherwise output to file 
             var file = new FileInfo(Options.OutputFile);
 

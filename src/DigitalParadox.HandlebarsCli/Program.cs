@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Unity;
+﻿using DigitalParadox.HandlebarsCli.Utilities;
+using Microsoft.Practices.Unity;
 
 namespace DigitalParadox.HandlebarsCli
 {
@@ -8,10 +9,11 @@ namespace DigitalParadox.HandlebarsCli
         {
             using (var bootstrapper = new Bootstrapper())
             {
-                bootstrapper.Setup();
 
-                var app = bootstrapper.Resolve<Application>();
-                app.Run();
+                bootstrapper.Setup();
+                var verb = bootstrapper.Resolve<IVerbDefinition>();
+                verb.Execute();
+
             }
         }
     }

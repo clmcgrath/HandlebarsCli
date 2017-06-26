@@ -23,15 +23,32 @@ namespace DigitalParadox.HandlebarsCli
                     new InjectionMember[0]);
             });
 
-            this.RegisterInstance(ConfigurationTools.LoadAppConfig());
-
-            this.RegisterInstance(Options.Parse(Environment.GetCommandLineArgs().Skip(1)));
-
             this.RegisterType<ICollection<IHandlebarsHelper>>(
                 new InjectionFactory(inject => this.ResolveAll<IHandlebarsHelper>()));
 
-            Registrations.Where(q => typeof(IProvider).IsAssignableFrom(q.MappedToType))
-                .ForEach(q => Console.WriteLine($"Registered Plugin {q.Name} ({q.MappedToType.FullName})"));
+            var verbs = AssemblyLoader.GetAssemblies<IVerbDefinition>()
+                                           .GetTypes<IVerbDefinition>().Where(q=>!q.IsInterface);
+    
+            verbs.ForEach(q =>
+            {
+                RegisterType(typeof(IVerbDefinition),q ,q.AssemblyQualifiedName, new ContainerControlledLifetimeManager(),
+                    new InjectionMember[0]);
+            });
+
+            this.RegisterInstance(ConfigurationTools.LoadAppConfig());
+
+            this.RegisterInstance(Options.Parse(Environment.GetCommandLineArgs().Skip(1)));
+            
+            this.RegisterType<IVerbResolver, VerbResolver>();
+
+            this.RegisterType<IVerbDefinition>(new InjectionFactory(inject =>
+            {
+                var resolver = inject.Resolve<IVerbResolver>();
+                return resolver.Resolve(Environment.GetCommandLineArgs());
+            }));
+
+            //Registrations.Where(q => typeof(IProvider).IsAssignableFrom(q.MappedToType))
+            //    .ForEach(q => Console.WriteLine($"Registered Plugin {q.Name} ({q.MappedToType.FullName})"));
         }
     }
 }

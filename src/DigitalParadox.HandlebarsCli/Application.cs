@@ -8,7 +8,6 @@ using DigitalParadox.HandlebarsCli.Models;
 using DigitalParadox.HandlebarsCli.Plugins;
 using HandlebarsDotNet;
 using Microsoft.Practices.ObjectBuilder2;
-using Mustache;
 using Newtonsoft.Json;
 
 namespace DigitalParadox.HandlebarsCli
@@ -30,7 +29,7 @@ namespace DigitalParadox.HandlebarsCli
         public void Run()
         {
             var viewsDir = Options.ViewsDirectory.Replace("{{TemplateDirectory}}", Options.TemplateDirectory);
-            var templates = System.IO.Directory.GetFiles(viewsDir, "*.*", SearchOption.AllDirectories).Select(tpl => new FileInfo(tpl));
+            var templates = Directory.GetFiles(viewsDir, "*.hbs", SearchOption.AllDirectories).Select(tpl => new FileInfo(tpl));
             
             templates.ForEach(tpl=> Handlebars.RegisterTemplate( tpl.Name.TrimEnd(tpl.Extension.ToCharArray()), File.ReadAllText(tpl.FullName)));
 

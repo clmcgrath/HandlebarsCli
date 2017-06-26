@@ -54,13 +54,14 @@ public class MyPlugin : HandlebarsCli.Plugins.IHandlebarsHelper
 ### 1.0  
 * Fix Existing Bugs 
 * Stabilize /optimize  rendering engine
-* Build msi installer
-* Add Chocolatey Support 
-
-### 2.0 
-* Add Support for writing helpers in .cs & .csx
 * Add Support for directory initialization / project creation 
 * Add Support for adding views / templates / partials via command line 
+* Build out plugin system 
+
+### 2.0 
+* Build msi installer
+* Add Chocolatey Support 
+* Add Support for writing helpers in .cs & .csx
 * Helper installation support, Likely nuget based 
 
 ## Contributing 

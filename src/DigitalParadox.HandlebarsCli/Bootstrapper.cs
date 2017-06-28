@@ -37,7 +37,7 @@ namespace DigitalParadox.HandlebarsCli
 
             this.RegisterInstance(ConfigurationTools.LoadAppConfig());
 
-            this.RegisterInstance(Options.Parse(Environment.GetCommandLineArgs().Skip(1)));
+            //this.RegisterInstance(Options.Parse(Environment.GetCommandLineArgs().Skip(1)));
             
             this.RegisterType<IVerbResolver, VerbResolver>();
 

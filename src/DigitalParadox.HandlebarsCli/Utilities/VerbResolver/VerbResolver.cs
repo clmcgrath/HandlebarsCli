@@ -23,7 +23,12 @@ namespace DigitalParadox.HandlebarsCli.Utilities
         public IVerbDefinition Resolve(IEnumerable<string> args)
         {
 
-            var parser = new Parser();
+            var parser = new Parser(settings =>
+            {
+                settings.CaseInsensitiveEnumValues = true;
+                settings.CaseSensitive = false;
+                settings.EnableDashDash = true;
+            });
 
             IVerbDefinition command = null;
 
@@ -42,16 +47,15 @@ namespace DigitalParadox.HandlebarsCli.Utilities
                 {
                     foreach (var error in errors)
                     {
-                        //setup error resource for error strings ...
-                        Console.WriteLine($"Error: { error.Tag }");
-                        Environment.Exit((int)error.Tag);
+                    
                         //Exception
+                        Console.Error.WriteLine(HelpText.AutoBuild(parse).ToString());
+                        Environment.Exit((int)error.Tag);
                     }
 
                 });
 
-
-            
+                
             return command;
         }
 

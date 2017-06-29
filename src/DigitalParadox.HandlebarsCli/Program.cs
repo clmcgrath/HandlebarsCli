@@ -1,4 +1,8 @@
-﻿using DigitalParadox.HandlebarsCli.Utilities;
+﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using CommandLine;
+using DigitalParadox.HandlebarsCli.Utilities;
+using DigitalParadox.HandlebarsCli.Verbs;
 using Microsoft.Practices.Unity;
 
 namespace DigitalParadox.HandlebarsCli
@@ -15,6 +19,21 @@ namespace DigitalParadox.HandlebarsCli
                 verb.Execute();
 
             }
+        }
+    }
+
+    public class UnityParser : Parser
+    {
+        private readonly IUnityContainer _container;
+
+        public UnityParser(IUnityContainer container, ParserSettings settings)
+        {
+            _container = container;
+        }
+
+        public new ParserResult<T> ParseArguments<T>(IEnumerable<string> args) where T : new()
+        {
+            return this.ParseArguments(() => _container.Resolve<T>(), args );
         }
     }
 }

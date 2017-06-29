@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CommandLine;
 using DigitalParadox.HandlebarsCli.Models;
 using DigitalParadox.HandlebarsCli.Plugins;
 using DigitalParadox.HandlebarsCli.Utilities;
@@ -46,6 +47,16 @@ namespace DigitalParadox.HandlebarsCli
                 var resolver = inject.Resolve<IVerbResolver>();
                 return resolver.Resolve(Environment.GetCommandLineArgs());
             }));
+
+             this.RegisterType<Parser, UnityParser>();
+            this.RegisterInstance(
+                new ParserSettings()
+                {
+                    CaseInsensitiveEnumValues = true,
+                    EnableDashDash = true,
+                    CaseSensitive = false
+                });
+
 
             //Registrations.Where(q => typeof(IProvider).IsAssignableFrom(q.MappedToType))
             //    .ForEach(q => Console.WriteLine($"Registered Plugin {q.Name} ({q.MappedToType.FullName})"));

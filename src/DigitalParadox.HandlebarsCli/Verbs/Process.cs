@@ -1,20 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
+using DigitalParadox.HandlebarsCli.Models;
+using DigitalParadox.HandlebarsCli.Plugins;
 using DigitalParadox.HandlebarsCli.Utilities;
+using HandlebarsDotNet;
+using Microsoft.Practices.ObjectBuilder2;
+using Newtonsoft.Json;
+using Dependency = Microsoft.Practices.Unity.DependencyAttribute;
 
 namespace DigitalParadox.HandlebarsCli.Verbs
 {
     [Verb("process", HelpText = "Process handlebars Template")]
     public class Process : IVerbDefinition
     {
+        [@Dependency]
+        public ICollection<IHandlebarsHelper> Plugins { get; set; }
+
+        [@Dependency]
+        public Configuration Configuration { get; set; }
+
+
+
         public bool Verbose { get; set; }
         [Option('b', "basedir", Default = @".\", MetaValue = "Path", HelpText = "Base directory to load templates from")]
         public string TemplateDirectory { get; set; }
-
+        
         [Option('i', "input", HelpText = "Input data file, supports json only at this time")]
         public string InputFile { get; set; }
         [Value(1, Required = true, MetaValue = "TEMPLATE NAME", HelpText = "Template Name to use for output, ie pscomment.template or pscomment.hbs")]
@@ -22,8 +39,59 @@ namespace DigitalParadox.HandlebarsCli.Verbs
         public string TemplateName { get; set; }
         public int Execute()
         {
-            Console.WriteLine("process verb executed");
-            return 1;
+            Handlebars.Configuration.ThrowOnUnresolvedBindingExpression = true;
+
+            var viewsDir = ViewsDirectory.Replace("{{TemplateDirectory}}", TemplateDirectory);
+            var templates = Directory.GetFiles(viewsDir, "*.hbs", SearchOption.AllDirectories).Select(tpl => new FileInfo(tpl));
+
+            templates.ForEach(tpl => Handlebars.RegisterTemplate(tpl.Name.TrimEnd(tpl.Extension.ToCharArray()), File.ReadAllText(tpl.FullName)));
+
+            Plugins.ForEach(p => Handlebars.RegisterHelper(
+                p.Name,
+                (writer, options, context, arguments) => p.Execute(writer, options, context, arguments)));
+            var path = new FileInfo(Path.Combine(TemplateDirectory, TemplateName));
+            var template = File.ReadAllText(path.FullName, Encoding.UTF8);
+
+            var compiledTemplate = Handlebars.Compile(template);
+            
+
+            if (!string.IsNullOrWhiteSpace(InputFile))
+            {
+                var datafile = new FileInfo(InputFile);
+                if (!datafile.Exists)
+                {
+                    throw new FileLoadException(
+                        "The specified file could not be loaded.",
+                        new FileNotFoundException($"File {datafile.FullName} was not found.")
+                    );
+                }
+
+                Data = File.ReadAllText(datafile.FullName);
+            }
+
+            var model = JsonConvert.DeserializeObject<ExpandoObject>(Data);
+
+            var result = compiledTemplate(model);
+            //if output file not specified write to console 
+            if (string.IsNullOrWhiteSpace(OutputFile))
+            {
+                Console.WriteLine(result);
+                return 0;
+            }
+
+            //otherwise output to file 
+            var file = new FileInfo(OutputFile);
+
+            File.WriteAllText(OutputFile, result, Encoding.UTF8);
+
+            Console.WriteLine(file.FullName);
+            return 0;
         }
+
+        public string ViewsDirectory { get; set; }
+
+        public string OutputFile { get; set; }
+
+        public string Data { get; set; }
     }
 }

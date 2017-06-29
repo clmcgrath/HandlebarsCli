@@ -23,12 +23,7 @@ namespace DigitalParadox.HandlebarsCli.Utilities
         public IVerbDefinition Resolve(IEnumerable<string> args)
         {
 
-            var parser = new Parser(settings =>
-            {
-                settings.CaseInsensitiveEnumValues = true;
-                settings.CaseSensitive = false;
-                settings.EnableDashDash = true;
-            });
+            var parser = _container.Resolve<Parser>();
 
             IVerbDefinition command = null;
 

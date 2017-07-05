@@ -1,1 +1,3 @@
-﻿
+﻿Put Handlebars.net custom helpers and plugins here 
+Custom verbs can also go here 
+use the --plugins switch to use custom plugins directory 

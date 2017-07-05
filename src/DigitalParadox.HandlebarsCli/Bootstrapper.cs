@@ -8,6 +8,7 @@ using DigitalParadox.HandlebarsCli.Utilities;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
+using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
 
 namespace DigitalParadox.HandlebarsCli
 {
@@ -16,6 +17,10 @@ namespace DigitalParadox.HandlebarsCli
         public virtual void Setup()
         {
             ServiceLocator.SetLocatorProvider(() => new UnityServiceLocator(this));
+
+
+            this.AddNewExtension<HandlebarsTemplateProcessorExtension>();
+
             var helpers = PluginsLoader.GetPlugins<IHandlebarsHelper>();
 
             helpers.ForEach(q =>
@@ -48,7 +53,7 @@ namespace DigitalParadox.HandlebarsCli
                 return resolver.Resolve(Environment.GetCommandLineArgs());
             }));
 
-             this.RegisterType<Parser, UnityParser>();
+            this.RegisterType<Parser, UnityParser>();
             this.RegisterInstance(
                 new ParserSettings()
                 {

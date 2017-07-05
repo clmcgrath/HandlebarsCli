@@ -14,45 +14,50 @@ using HandlebarsDotNet;
 using Microsoft.Practices.ObjectBuilder2;
 using Newtonsoft.Json;
 using Dependency = Microsoft.Practices.Unity.DependencyAttribute;
+using DigitalParadox.HandlebarsCli.Interfaces;
 
 namespace DigitalParadox.HandlebarsCli.Verbs
 {
     [Verb("process", HelpText = "Process handlebars Template")]
     public class Process : IVerbDefinition
     {
-        [@Dependency]
-        public ICollection<IHandlebarsHelper> Plugins { get; set; }
+        private readonly ITemplateProcessor _processor;
 
-        [@Dependency]
+        public Process()
+        {
+            
+        }
+
+        public Process(ITemplateProcessor processor, Configuration configuration)
+        {
+            _processor = processor;
+           
+        }
+
+
         public Configuration Configuration { get; set; }
-
-
-
+        
         public bool Verbose { get; set; }
         [Option('b', "basedir", Default = @".\", MetaValue = "Path", HelpText = "Base directory to load templates from")]
         public string TemplateDirectory { get; set; }
         
         [Option('i', "input", HelpText = "Input data file, supports json only at this time")]
         public string InputFile { get; set; }
-        [Value(1, Required = true, MetaValue = "TEMPLATE NAME", HelpText = "Template Name to use for output, ie pscomment.template or pscomment.hbs")]
 
+        [Option('t', "template", SetName = "textTemplate", Required = true)]
+        public string Exception { get; set; }
+
+        [Option('n',"template-name", Required = true, SetName = "FileTemplate", MetaValue = "TEMPLATE NAME", HelpText = "Template Name to use for output, ie pscomment.template or pscomment.hbs")]
         public string TemplateName { get; set; }
+
         public int Execute()
         {
-            Handlebars.Configuration.ThrowOnUnresolvedBindingExpression = true;
-
-            var viewsDir = ViewsDirectory.Replace("{{TemplateDirectory}}", TemplateDirectory);
-            var templates = Directory.GetFiles(viewsDir, "*.hbs", SearchOption.AllDirectories).Select(tpl => new FileInfo(tpl));
-
-            templates.ForEach(tpl => Handlebars.RegisterTemplate(tpl.Name.TrimEnd(tpl.Extension.ToCharArray()), File.ReadAllText(tpl.FullName)));
-
-            Plugins.ForEach(p => Handlebars.RegisterHelper(
-                p.Name,
-                (writer, options, context, arguments) => p.Execute(writer, options, context, arguments)));
+            
             var path = new FileInfo(Path.Combine(TemplateDirectory, TemplateName));
+
             var template = File.ReadAllText(path.FullName, Encoding.UTF8);
 
-            var compiledTemplate = Handlebars.Compile(template);
+            
             
 
             if (!string.IsNullOrWhiteSpace(InputFile))
@@ -71,18 +76,27 @@ namespace DigitalParadox.HandlebarsCli.Verbs
 
             var model = JsonConvert.DeserializeObject<ExpandoObject>(Data);
 
-            var result = compiledTemplate(model);
+
+            ITemplateResult  result = _processor.Process(template, model);
+
+            if (result.HasErrors)
+            {
+                result.Errors.ForEach(q => Console.Error.WriteLine(q.Description));
+                return 5;
+            }
+
             //if output file not specified write to console 
+
             if (string.IsNullOrWhiteSpace(OutputFile))
             {
-                Console.WriteLine(result);
+                Console.WriteLine(result.Result);
                 return 0;
             }
 
             //otherwise output to file 
             var file = new FileInfo(OutputFile);
 
-            File.WriteAllText(OutputFile, result, Encoding.UTF8);
+            File.WriteAllText(OutputFile, result.Result, Encoding.UTF8);
 
             Console.WriteLine(file.FullName);
             return 0;

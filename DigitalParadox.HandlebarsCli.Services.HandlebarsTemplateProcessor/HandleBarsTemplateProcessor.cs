@@ -2,12 +2,12 @@
 using DigitalParadox.HandlebarsCli.Interfaces;
 using HandlebarsDotNet;
 using Microsoft.Practices.ObjectBuilder2;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
 {
@@ -16,6 +16,9 @@ namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
     {
         public HandleBarsTemplateProcessor(ICollection<IHandlebarsHelper> plugins, ITemplateProcessorOptions configuration )
         {
+            
+            var conf = (HandlebarsProcessorOptions) configuration;
+
             Plugins = plugins;
             
             Plugins.ForEach(p => Handlebars.RegisterHelper(
@@ -24,7 +27,7 @@ namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
 
             Handlebars.Configuration.ThrowOnUnresolvedBindingExpression = true;
 
-            var viewsDir = configuration.ViewsDirectory.Replace("{{TemplateDirectory}}", configuration.TemplateDirectory);
+            var viewsDir = conf.ViewOptions.Directory.FullName.Replace("{{BaseDirectory}}", conf.BaseDirectory.FullName);
 
             var templates = Directory.GetFiles(viewsDir, "*.hbs", SearchOption.AllDirectories).Select(tpl => new FileInfo(tpl));
 
@@ -32,17 +35,48 @@ namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
 
         }
 
-        public interface ITemplateProcessorOptions
+
+        public ITemplateProcessorOptions Options { get; set; }
+
+        public void BeforeProcess(string template, object data)
         {
-            string ViewsDirectory { get; set; }
-            string TemplateDirectory { get; set; }
+
+        }
+
+        public void Initialize(string template, object data)
+        {
+            
         }
 
         public ITemplateResult Process(string template, object data)
         {
-            return null;
+            Initialize(template, data);
+            BeforeProcess(template, data);
+
+            var compiledTemplate = Handlebars.Compile(template);
+
+            try
+            {
+                var result = compiledTemplate(data);
+
+                AfterProcess(result, data);
+
+                return new HandlebarsTemplateResult(result);
+            }
+            catch (HandlebarsCompilerException e)
+            {
+                var errorResult = new HandlebarsTemplateResult(template);
+                errorResult.Errors.Add(new HandlebarsTemplateError(e));
+                return errorResult;
+            }
         }
+
+        public void AfterProcess(string template, object data)
+        {
+            
+        }
+
+
         public ICollection<IHandlebarsHelper> Plugins { get; set; }
     }
-
 }

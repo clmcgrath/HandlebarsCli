@@ -23,18 +23,13 @@ namespace DigitalParadox.HandlebarsCli.Verbs
     {
         private readonly ITemplateProcessor _processor;
 
-        public Process()
-        {
-            
-        }
+
 
         public Process(ITemplateProcessor processor, Configuration configuration)
         {
             _processor = processor;
-           
         }
-
-
+        
         public Configuration Configuration { get; set; }
         
         public bool Verbose { get; set; }
@@ -54,12 +49,8 @@ namespace DigitalParadox.HandlebarsCli.Verbs
         {
             
             var path = new FileInfo(Path.Combine(TemplateDirectory, TemplateName));
-
             var template = File.ReadAllText(path.FullName, Encoding.UTF8);
-
             
-            
-
             if (!string.IsNullOrWhiteSpace(InputFile))
             {
                 var datafile = new FileInfo(InputFile);

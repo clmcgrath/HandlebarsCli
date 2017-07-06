@@ -68,12 +68,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HandlebarsHelpersLoaderTests.cs" />
+    <Compile Include="HandleBarsTemplateProcessorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor\DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor.csproj">
+      <Project>{AA472B29-96FF-47EA-9DEC-04C90406FF3A}</Project>
+      <Name>DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DigitalParadox.HandlebarsCli.Plugins\DigitalParadox.HandlebarsCli.Plugins.csproj">
       <Project>{14903B7E-0817-4FCF-9F98-A69425D95A35}</Project>
       <Name>DigitalParadox.HandlebarsCli.Plugins</Name>
@@ -81,6 +87,10 @@
     <ProjectReference Include="..\DigitalParadox.HandlebarsCli\DigitalParadox.HandlebarsCli.csproj">
       <Project>{C51224A7-5529-4276-A154-BA088D0E8ABD}</Project>
       <Name>DigitalParadox.HandlebarsCli</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DogitalParadox.HandlebarsCli.Interfaces\DigitalParadox.HandlebarsCli.Interfaces.csproj">
+      <Project>{10B69E1F-DC8A-4A11-BBB9-85FE97C22D8D}</Project>
+      <Name>DigitalParadox.HandlebarsCli.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CommandLine;
+using DigitalParadox.HandlebarsCli.Interfaces;
+using DigitalParadox.HandlebarsCli.Models;
 using DigitalParadox.HandlebarsCli.Plugins;
 using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
 using DigitalParadox.HandlebarsCli.Utilities;
@@ -24,19 +26,20 @@ namespace DigitalParadox.HandlebarsCli
 
             helpers.ForEach(q =>
             {
-                RegisterType(typeof(IHandlebarsHelper), q.Value, q.Key, new ContainerControlledLifetimeManager(),
+                RegisterType(typeof(IHandlebarsHelper), q.Value, q.Key, new TransientLifetimeManager(), 
                     new InjectionMember[0]);
             });
 
-            this.RegisterType<ICollection<IHandlebarsHelper>>(
-                new InjectionFactory(inject => this.ResolveAll<IHandlebarsHelper>()));
+
+
+            this.RegisterInstance(this.Resolve<Configuration>().ProcessorOptions);
 
             var verbs = AssemblyLoader.GetAssemblies<IVerbDefinition>()
                                            .GetTypes<IVerbDefinition>().Where(q=>!q.IsInterface);
     
             verbs.ForEach(q =>
             {
-                RegisterType(typeof(IVerbDefinition),q ,q.AssemblyQualifiedName, new ContainerControlledLifetimeManager(),
+                RegisterType(typeof(IVerbDefinition),q ,q.AssemblyQualifiedName, new TransientLifetimeManager(), 
                     new InjectionMember[0]);
             });
 
@@ -61,9 +64,17 @@ namespace DigitalParadox.HandlebarsCli
                     CaseSensitive = false
                 });
 
+            this.RegisterType<ICollection<IHandlebarsHelper>>(
+                new InjectionFactory(inject => this.ResolveAll<IHandlebarsHelper>()));
 
-            //Registrations.Where(q => typeof(IProvider).IsAssignableFrom(q.MappedToType))
-            //    .ForEach(q => Console.WriteLine($"Registered Plugin {q.Name} ({q.MappedToType.FullName})"));
+            this.RegisterType<ICollection<IVerbDefinition>>(
+                new InjectionFactory(inject => this.ResolveAll<IVerbDefinition>()));
+            //if (!this.Resolve<IVerbResolver>().Resolve().Verbose) return;
+            //
+            //    Console.WriteLine("Registered Helpers:");
+            //    Registrations.Where(q => typeof(IHandlebarsHelper).IsAssignableFrom(q.MappedToType))
+            //        .ForEach(q => Console.WriteLine($"Registered Plugin {q.Name} ({q.MappedToType.FullName})"));
+
         }
     }
 }

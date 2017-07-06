@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace DigitalParadox.HandlebarsCli.Utilities
@@ -532,6 +534,23 @@ namespace DigitalParadox.HandlebarsCli.Utilities
             //  from 10 and see if it's equal to the check digit
             return 10 - ttl % 10 == check;
         }
+
+        public static string ToAssemblyPath(this Assembly assembly)
+        {
+            string codeBase = assembly.CodeBase;
+            UriBuilder uri = new UriBuilder(codeBase);
+            string path = Uri.UnescapeDataString(uri.Path);
+            return Path.GetFullPath(path);
+        }
+
+        public static string ToDirectoryPath(this Assembly assembly)
+        {
+            string codeBase = assembly.CodeBase;
+            UriBuilder uri = new UriBuilder(codeBase);
+            string path = Uri.UnescapeDataString(uri.Path);
+            return Path.GetDirectoryName(path);
+        }
+
     }
 
     public enum PhoneType
@@ -599,4 +618,8 @@ namespace DigitalParadox.HandlebarsCli.Utilities
         /// </summary>
         PhoneExt
     }
+
+
+
+
 }

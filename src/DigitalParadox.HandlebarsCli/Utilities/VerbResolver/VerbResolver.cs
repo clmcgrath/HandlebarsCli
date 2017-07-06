@@ -11,24 +11,22 @@ namespace DigitalParadox.HandlebarsCli.Utilities
 {
     public class VerbResolver : IVerbResolver
     {
-        private readonly IUnityContainer _container;
+        private readonly Parser _parser;
         private readonly IEnumerable<IVerbDefinition> _verbs;
 
-        public VerbResolver(IUnityContainer container)
+        public VerbResolver(Parser parser, ICollection<IVerbDefinition> verbs)
         {
-            _container = container;
-            _verbs = container.ResolveAll<IVerbDefinition>();
+            _parser = parser;
+            _verbs = verbs;
         }
 
         public IVerbDefinition Resolve(IEnumerable<string> args)
         {
-
-            var parser = _container.Resolve<Parser>();
-
+            
             IVerbDefinition command = null;
 
             var parse =
-                parser.ParseArguments(args.Skip(1), _verbs.Select(q => q.GetType()).ToArray());
+                _parser.ParseArguments(args.Skip(1), _verbs.Select(q => q.GetType()).ToArray());
                 
                 foreach (var verb in _verbs)
                 {
@@ -45,6 +43,8 @@ namespace DigitalParadox.HandlebarsCli.Utilities
                     
                         //Exception
                         Console.Error.WriteLine(HelpText.AutoBuild(parse).ToString());
+                        Console.WriteLine("Brutalize a key with your favourite finger to exit.");
+                        Console.ReadKey();
                         Environment.Exit((int)error.Tag);
                     }
 

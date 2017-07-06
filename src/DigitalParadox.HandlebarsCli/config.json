@@ -1,5 +1,12 @@
 ﻿{
   "PluginDirectories": [
     ".\\Plugins\\"
-  ]
+  ],
+  "ProcessorOptions" : {
+    "BaseDirectory" :  ".\\",
+    "ViewOptions": {
+      "Directory": "{{BaseDirectory}}\\Views"
+    }
+     
+    }
 }

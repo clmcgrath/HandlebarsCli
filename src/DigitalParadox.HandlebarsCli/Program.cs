@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using CommandLine;
 using DigitalParadox.HandlebarsCli.Utilities;
@@ -17,7 +18,8 @@ namespace DigitalParadox.HandlebarsCli
                 bootstrapper.Setup();
                 var verb = bootstrapper.Resolve<IVerbDefinition>();
                 verb.Execute();
-
+                Console.WriteLine("Brutalize a key with your favourite finger to exit.");
+                Console.ReadKey();
             }
         }
     }

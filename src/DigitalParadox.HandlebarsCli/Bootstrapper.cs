@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CommandLine;
-using DigitalParadox.HandlebarsCli.Models;
 using DigitalParadox.HandlebarsCli.Plugins;
+using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
 using DigitalParadox.HandlebarsCli.Utilities;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
-using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
 
 namespace DigitalParadox.HandlebarsCli
 {

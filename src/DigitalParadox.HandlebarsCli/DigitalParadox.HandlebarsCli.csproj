@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>DigitalParadox.HandlebarsCli</RootNamespace>
     <AssemblyName>handlebars-cli</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
@@ -58,7 +58,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>handlebars_cli.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>3A9C34E8A5DEEB4017E2A429DE15750DEC8EB5A6</ManifestCertificateThumbprint>
@@ -128,8 +129,6 @@
     <Compile Include="Verbs\Settings.cs" />
     <Compile Include="Verbs\Process.cs" />
     <None Include="app.config" />
-    <None Include="DigitalParadox.HandlebarsCli_TemporaryKey.pfx" />
-    <None Include="handlebars_cli.pfx" />
     <None Include="Properties\app.manifest" />
     <None Include="test_data.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

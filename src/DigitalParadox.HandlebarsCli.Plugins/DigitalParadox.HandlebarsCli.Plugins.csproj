@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyLoader.cs" />
     <Compile Include="Extensions\MetaDataExtensions.cs" />
     <Compile Include="Helpers\HelloWorldExamplePlugin.cs" />
     <Compile Include="IHandlebarsHelper.cs" />
@@ -59,6 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DigitalParadox.Utilities.AssemblyLoader\DigitalParadox.Utilities.AssemblyLoader.csproj">
+      <Project>{E857A0B0-5082-4483-A975-289C5699F352}</Project>
+      <Name>DigitalParadox.Utilities.AssemblyLoader</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

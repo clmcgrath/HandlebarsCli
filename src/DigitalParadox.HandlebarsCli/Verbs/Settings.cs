@@ -7,8 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
+using DigitalParadox.HandlebarsCli.Interfaces;
 using DigitalParadox.HandlebarsCli.Models;
 using DigitalParadox.HandlebarsCli.Utilities;
+using DigitalParadox.Parsing.CommandLine;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.ServiceLocation;
 

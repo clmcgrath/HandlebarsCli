@@ -11,10 +11,8 @@ namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
     {
         protected override void Initialize()
         {
-            
             Container.RegisterType<ITemplateProcessor, HandleBarsTemplateProcessor>();
             Container.RegisterType<ITemplateProcessorOptions, HandlebarsProcessorOptions>();
-
         }
 
     }
@@ -26,10 +24,11 @@ namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
             ViewOptions = viewOptions;
         }
         [JsonConverter(typeof(FileSystemInfoConverter<DirectoryInfo>))]
-        public DirectoryInfo BaseDirectory { get; set; } = new DirectoryInfo(".\\");
+        public DirectoryInfo DefaultBaseDirectory { get; set; } = new DirectoryInfo(".\\");
         public ViewOptions ViewOptions { get; set; }
-        
-        
+
+
+        public DirectoryInfo BaseDirectory { get; set; }
     }
     public class ViewOptions
     {

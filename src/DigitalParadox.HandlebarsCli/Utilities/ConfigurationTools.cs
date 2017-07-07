@@ -1,22 +1,43 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
-using ConfigR;
-using ConfigR.Sdk;
-using DigitalParadox.HandlebarsCli.Models;
-using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
-using Newtonsoft.Json;
+using DigitalParadox.HandlebarsCli.Interfaces;
+using DigitalParadox.Parsers.Yaml;
+using Microsoft.Practices.ServiceLocation;
+using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
+using SharpYaml.Serialization;
+using Configuration = DigitalParadox.HandlebarsCli.Models.Configuration;
 
 namespace DigitalParadox.HandlebarsCli.Utilities
 {
-    public static class ConfigurationTools
+    public class ConfigurationTools
     {
-        public static Configuration LoadAppConfig()
+        private readonly IYamlParser _parser;
+        private readonly ITemplateProcessorOptions _options;
+
+        public ConfigurationTools(IYamlParser parser, ITemplateProcessorOptions options)
         {
-            return new Configuration(new HandlebarsProcessorOptions(new ViewOptions()));
+            _parser = parser;
+            _options = options;
         }
+
+        public Configuration LoadAppConfig()
+        {
+            
+
+            var yaml = File.ReadAllText(Path.Combine(typeof(Program).Assembly.ToDirectoryPath(),  "config.yaml"));
+     
+            var parsed = _parser.Deserialize<Configuration>(yaml);
+
+            return parsed;
+        }
+
+
+
     }
+
+
+
 
 
 }

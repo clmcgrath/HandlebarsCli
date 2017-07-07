@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
-using Microsoft.Practices.Unity;
+using DigitalParadox.HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.HandlebarsCli.Utilities
+namespace DigitalParadox.Parsing.CommandLine
 {
     public class VerbResolver : IVerbResolver
     {
         private readonly Parser _parser;
         private readonly IEnumerable<IVerbDefinition> _verbs;
 
-        public VerbResolver(Parser parser, ICollection<IVerbDefinition> verbs)
+        public VerbResolver(Parser parser, IEnumerable<IVerbDefinition> verbs)
         {
             _parser = parser;
             _verbs = verbs;
@@ -26,7 +24,7 @@ namespace DigitalParadox.HandlebarsCli.Utilities
             IVerbDefinition command = null;
 
             var parse =
-                _parser.ParseArguments(args.Skip(1), _verbs.Select(q => q.GetType()).ToArray());
+                _parser.ParseArguments(args.Skip(1), _verbs.Select(q => q.GetType()).ToArray<Type>());
                 
                 foreach (var verb in _verbs)
                 {

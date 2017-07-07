@@ -5,9 +5,7 @@ using Microsoft.Practices.ObjectBuilder2;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+using Newtonsoft.Json;
 
 namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
 {
@@ -27,7 +25,7 @@ namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
 
             Handlebars.Configuration.ThrowOnUnresolvedBindingExpression = true;
 
-            var viewsDir = conf.ViewOptions.Directory.FullName.Replace("{{BaseDirectory}}", conf.BaseDirectory.FullName);
+            var viewsDir = conf.ViewOptions.Directory.FullName.Replace("{{BaseDirectory}}", conf.DefaultBaseDirectory.FullName);
 
             var templates = Directory.GetFiles(viewsDir, "*.hbs", SearchOption.AllDirectories).Select(tpl => new FileInfo(tpl));
 
@@ -74,6 +72,36 @@ namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
         public void AfterProcess(string template, object data)
         {
             
+        }
+
+        public void InitializeProject(DirectoryInfo target) => InitializeProject(target, false);
+
+        public void InitializeProject(DirectoryInfo target, bool cleanDirectory)
+        {
+            if (target.Exists)
+            {
+                if (cleanDirectory)
+                {
+                    target.GetFileSystemInfos().ForEach(fsi=> 
+                        fsi.Delete()
+                    );
+
+                }
+
+                Directory.CreateDirectory(Path.Combine(target.FullName, "Views"));
+                File.WriteAllText(Path.Combine(target.FullName, "main_template.hbs"), "My New Project Template\n {{#names}} \n\t{{> name }} \n{{/names}}");
+
+                File.WriteAllText(Path.Combine(target.FullName, "Views\\name.hbs"), "Hello {{this}}!! \n This Is An Example View ");
+                var data = new {names = new[] {"Chris", "Mike", "Tony"}};
+
+                //File.WriteAllText(Path.Combine(target.FullName, "data.yaml"), new Serializer().Serialize(data));
+                //File.WriteAllText(Path.Combine(target.FullName, "data.json"), JsonConvert.SerializeObject(data));
+                
+            }
+            else
+            {
+                throw new DirectoryNotFoundException($"{target.FullName} does not exist.");
+            }
         }
 
 

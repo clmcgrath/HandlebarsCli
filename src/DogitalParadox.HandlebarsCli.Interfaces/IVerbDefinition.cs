@@ -1,6 +1,6 @@
 ﻿using DigitalParadox.HandlebarsCli.Plugins;
 
-namespace DigitalParadox.HandlebarsCli.Utilities
+namespace DigitalParadox.HandlebarsCli.Interfaces
 {
     public interface IVerbDefinition : IProvider
     {

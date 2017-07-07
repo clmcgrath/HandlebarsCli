@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{10B69E1F-DC8A-4A11-BBB9-85FE97C22D8D}</ProjectGuid>
+    <ProjectGuid>{E857A0B0-5082-4483-A975-289C5699F352}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DigitalParadox.HandlebarsCli.Interfaces</RootNamespace>
-    <AssemblyName>DigitalParadox.HandlebarsCli.Interfaces</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <RootNamespace>DigitalParadox.Utilities.AssemblyLoader</RootNamespace>
+    <AssemblyName>DigitalParadox.Utilities.AssemblyLoader</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,25 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICommandLineParser.cs" />
-    <Compile Include="ILog.cs" />
-    <Compile Include="ITemplateProcessorOptions.cs" />
-    <Compile Include="ITemplateProcessor.cs" />
-    <Compile Include="ITemplateResult.cs" />
-    <Compile Include="IVerbDefinition.cs" />
-    <Compile Include="IVerbResolver.cs" />
+    <Compile Include="AssemblyLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringToDirectoryInfoConverter.cs" />
-    <Compile Include="TemplateError.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DigitalParadox.HandlebarsCli.Plugins\DigitalParadox.HandlebarsCli.Plugins.csproj">
-      <Project>{14903B7E-0817-4FCF-9F98-A69425D95A35}</Project>
-      <Name>DigitalParadox.HandlebarsCli.Plugins</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

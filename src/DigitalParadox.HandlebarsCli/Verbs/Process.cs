@@ -15,6 +15,7 @@ using Microsoft.Practices.ObjectBuilder2;
 using Newtonsoft.Json;
 using Dependency = Microsoft.Practices.Unity.DependencyAttribute;
 using DigitalParadox.HandlebarsCli.Interfaces;
+using DigitalParadox.Parsing.CommandLine;
 
 namespace DigitalParadox.HandlebarsCli.Verbs
 {

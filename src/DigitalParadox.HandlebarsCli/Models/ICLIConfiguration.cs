@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
 using DigitalParadox.HandlebarsCli.Interfaces;
-using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
-using Newtonsoft.Json;
+using Microsoft.Practices.Unity;
 
 namespace DigitalParadox.HandlebarsCli.Models
 {
@@ -16,19 +13,13 @@ namespace DigitalParadox.HandlebarsCli.Models
 
     public class Configuration : ICLIConfiguration
     {
-        public Configuration(HandlebarsProcessorOptions processorOptions)
+        public Configuration(ITemplateProcessorOptions processorOptions)
         {
-            if (processorOptions != null)
-            {
-                ProcessorOptions = processorOptions;
-            }
-            else
-            {
-                ProcessorOptions = new HandlebarsProcessorOptions(new ViewOptions());
-            }
+            ProcessorOptions = processorOptions;
         }
 
         public ICollection<string> PluginDirectories { get; set; }
+      
         public ITemplateProcessorOptions ProcessorOptions { get; set; }
     }
 }

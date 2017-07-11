@@ -5,12 +5,13 @@ using CommandLine;
 using CommandLine.Text;
 using DigitalParadox.HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.Parsing.CommandLine
+namespace DigitalParadox.Parsing.CommandLineParser
 {
     public class VerbResolver : IVerbResolver
     {
         private readonly Parser _parser;
         private readonly IEnumerable<IVerbDefinition> _verbs;
+        private readonly ILog _logger;
 
         public VerbResolver(Parser parser, IEnumerable<IVerbDefinition> verbs)
         {
@@ -24,28 +25,21 @@ namespace DigitalParadox.Parsing.CommandLine
             IVerbDefinition command = null;
 
             var parse =
-                _parser.ParseArguments(args.Skip(1), _verbs.Select(q => q.GetType()).ToArray<Type>());
+                _parser.ParseArguments(args, _verbs.Select(q => q.GetType()).ToArray<Type>());
                 
-                foreach (var verb in _verbs)
+
+                parse.WithParsed(options =>
                 {
-                    parse.WithParsed((options) =>
-                    {
-                        command = (IVerbDefinition)options;
-                    });
-                }
+                    command = (IVerbDefinition)options;
+                });
+                
                 
                 parse.WithNotParsed(errors =>
                 {
-                    foreach (var error in errors)
-                    {
-                    
-                        //Exception
-                        Console.Error.WriteLine(HelpText.AutoBuild(parse).ToString());
-                        Console.WriteLine("Brutalize a key with your favourite finger to exit.");
-                        Console.ReadKey();
-                        Environment.Exit((int)error.Tag);
-                    }
-
+                    Console.Error.WriteLine(HelpText.AutoBuild(parse).ToString());
+                    Console.WriteLine("Brutalize your favourite key to exit.");
+                    Console.ReadKey();
+                    Environment.Exit(errors.Count());
                 });
 
                 

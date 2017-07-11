@@ -1,28 +1,38 @@
 ﻿using CommandLine;
 using DigitalParadox.HandlebarsCli.Interfaces;
+using Microsoft.Practices.ServiceLocation;
+using Microsoft.Practices.Unity;
 
 namespace DigitalParadox.HandlebarsCli.Verbs
 {
-    [Verb("test", HelpText = "Process handlebars Template")]
+    [Verb("test", HelpText = "Used for debugging purposes")]
     public class TestVerb : IVerbDefinition
     {
-        private readonly ILog _log;
+        public ILog Log { get; }
 
+        [InjectionConstructor]
         public TestVerb(ILog log)
         {
-            _log = log;
+            Log = log;
         }
-        
+
+        public TestVerb()
+        {
+            // only defined to work around clp bug 
+        }
+
         public bool Verbose { get; set; }
 
         public int Execute()
         {
-            _log.WriteInformation("test info");
-            _log.WriteDebug("test debug");
-            _log.WriteWarning("test write");
-            _log.WriteVerbose("test verbose");
-            _log.WriteError("test error");
-            _log.WriteFatal("test error");
+         
+
+            Log.WriteInformation("test info");
+            Log.WriteDebug("test debug");
+            Log.WriteWarning("test write");
+            Log.WriteVerbose("test verbose");
+            Log.WriteError("test error");
+            Log.WriteFatal("test error");
 
             return 0;
         }

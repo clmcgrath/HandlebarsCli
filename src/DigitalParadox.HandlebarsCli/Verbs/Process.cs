@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using CommandLine;
 using DigitalParadox.HandlebarsCli.Models;
-using DigitalParadox.HandlebarsCli.Plugins;
-using DigitalParadox.HandlebarsCli.Utilities;
-using HandlebarsDotNet;
 using Microsoft.Practices.ObjectBuilder2;
 using Newtonsoft.Json;
-using Dependency = Microsoft.Practices.Unity.DependencyAttribute;
 using DigitalParadox.HandlebarsCli.Interfaces;
-using DigitalParadox.Parsing.CommandLine;
 
 namespace DigitalParadox.HandlebarsCli.Verbs
 {

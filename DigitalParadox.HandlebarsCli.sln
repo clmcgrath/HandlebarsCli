@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Logging.Seri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Parsers.Yaml", "DigitalParadox.Parsers.Yaml\DigitalParadox.Parsers.Yaml.csproj", "{A1FA7213-A1D9-4E43-B878-4E58F54C342F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Parsing.CommandLine", "DigitalParadox.Parsing.CommandLine\DigitalParadox.Parsing.CommandLine.csproj", "{372E4C9D-F12A-487C-8735-FEF00AFC6A5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Parsing.CommandLineParser", "DigitalParadox.Parsing.CommandLine\DigitalParadox.Parsing.CommandLineParser.csproj", "{372E4C9D-F12A-487C-8735-FEF00AFC6A5D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Utilities.AssemblyLoader", "DigitalParadox.Utilities.AssemblyLoader\DigitalParadox.Utilities.AssemblyLoader.csproj", "{E857A0B0-5082-4483-A975-289C5699F352}"
 EndProject

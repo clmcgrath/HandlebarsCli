@@ -37,15 +37,14 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICommandLineParser.cs" />
     <Compile Include="ILog.cs" />
+    <Compile Include="ILogTemplate.cs" />
+    <Compile Include="IProvider.cs" />
     <Compile Include="ITemplateProcessorOptions.cs" />
     <Compile Include="ITemplateProcessor.cs" />
     <Compile Include="ITemplateResult.cs" />
@@ -57,12 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DigitalParadox.HandlebarsCli.Plugins\DigitalParadox.HandlebarsCli.Plugins.csproj">
-      <Project>{14903B7E-0817-4FCF-9F98-A69425D95A35}</Project>
-      <Name>DigitalParadox.HandlebarsCli.Plugins</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using CommandLine;
-using CommandLine.Infrastructure;
-using DigitalParadox.HandlebarsCli;
 using DigitalParadox.HandlebarsCli.Interfaces;
-using DigitalParadox.HandlebarsCli.Plugins;
+using DigitalParadox.Utilities.AssemblyLoader;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity;
 
 namespace DigitalParadox.Parsing.CommandLineParser
 {
-    public class CommandLineParserPlugin : UnityContainerExtension
+    public  class CommandLineParserPlugin : UnityContainerExtension
     {
         protected override void Initialize()
         {
@@ -48,18 +46,6 @@ namespace DigitalParadox.Parsing.CommandLineParser
                     EnableDashDash = true,
                     CaseSensitive = false
                 });
-        }
-
-        public class UnityObjectFactory : IObjectFactory
-        {
-            public UnityObjectFactory(IUnityContainer container)
-            {
-                _container = container;
-            }
-
-            private readonly IUnityContainer _container;
-            public T Resolve<T>() => _container.Resolve<T>();
-            public object Resolve(Type type) => _container.Resolve(type);
         }
 
     }

@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.HandlebarsCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor", "DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor\DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor.csproj", "{AA472B29-96FF-47EA-9DEC-04C90406FF3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Logging.Serilog", "DigitalParadox.Logging.Serilog\DigitalParadox.Logging.Serilog.csproj", "{E393BFD5-F3A9-49FA-B229-0D4D214F3469}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Logging.Serilogger", "DigitalParadox.Logging.Serilog\DigitalParadox.Logging.Serilogger.csproj", "{E393BFD5-F3A9-49FA-B229-0D4D214F3469}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Parsers.Yaml", "DigitalParadox.Parsers.Yaml\DigitalParadox.Parsers.Yaml.csproj", "{A1FA7213-A1D9-4E43-B878-4E58F54C342F}"
 EndProject

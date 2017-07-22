@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace DigitalParadox.HandlebarsCli.Plugins
+namespace DigitalParadox.Utilities.AssemblyLoader
 {
     public static class AssemblyLoader
     {

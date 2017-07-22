@@ -1,11 +1,12 @@
 using DigitalParadox.HandlebarsCli.Config;
 using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
 using DigitalParadox.Logging;
-using DigitalParadox.Logging.Serilog;
+using DigitalParadox.Logging.Serilogger;
 using DigitalParadox.Parsers.Yaml;
 using DigitalParadox.Parsing.CommandLineParser;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
+
 
 namespace DigitalParadox.HandlebarsCli
 {
@@ -24,6 +25,5 @@ namespace DigitalParadox.HandlebarsCli
                 .AddNewExtension<PluginConfiguration>();
 
         }
-        
     }
 }

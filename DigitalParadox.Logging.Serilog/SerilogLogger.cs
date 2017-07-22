@@ -2,7 +2,7 @@
 using DigitalParadox.HandlebarsCli.Interfaces;
 using Serilog;
 
-namespace DigitalParadox.Logging.Serilog
+namespace DigitalParadox.Logging.Serilogger
 {
     public class SerilogLogger : ILog
     {

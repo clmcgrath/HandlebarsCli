@@ -1,11 +1,7 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using DigitalParadox.HandlebarsCli.Interfaces;
 using DigitalParadox.Parsers.Yaml;
-using Microsoft.Practices.ServiceLocation;
-using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
-using SharpYaml.Serialization;
+
 using Configuration = DigitalParadox.HandlebarsCli.Models.Configuration;
 
 namespace DigitalParadox.HandlebarsCli.Utilities

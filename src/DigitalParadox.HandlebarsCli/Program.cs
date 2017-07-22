@@ -10,12 +10,11 @@ namespace DigitalParadox.HandlebarsCli
         {
             using (var bootstrapper = new Bootstrapper())
             {
-
                 bootstrapper.Setup();
                 var resolver = bootstrapper.Resolve<IVerbResolver>();
                 var verb = resolver.Resolve(args);
                 verb.Execute();
-                Console.WriteLine("Brutalize a key with your favourite finger to exit.");
+                Console.WriteLine("\n\nBrutalize a key with your favourite finger to exit.");
                 Console.ReadKey();
             }
         }

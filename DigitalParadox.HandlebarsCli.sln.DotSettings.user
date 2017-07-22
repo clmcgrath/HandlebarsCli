@@ -1,0 +1,8 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="D:\Repos\git\DigitalParadox.HandlebarsCli\packages\Serilog.Sinks.ColoredConsole.3.0.1\lib\net45\Serilog.Sinks.ColoredConsole.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\Repos\git\DigitalParadox.HandlebarsCli\packages\Serilog.Sinks.Console.3.0.1\lib\net45\Serilog.Sinks.Console.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\Repos\git\DigitalParadox.HandlebarsCli\packages\Serilog.2.5.1-dev-00869\lib\net46\Serilog.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/MsbuildVersion/@EntryValue">4294967295</s:Int64>
+	<s:Int64 x:Key="/Default/Environment/SearchAndNavigation/DefaultOccurrencesGroupingIndex/@EntryValue">0</s:Int64></wpf:ResourceDictionary>

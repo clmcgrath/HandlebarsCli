@@ -1,10 +1,9 @@
-﻿using System;
+﻿using DigitalParadox.HandlebarsCli.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommandLine;
-using DigitalParadox.HandlebarsCli.Interfaces;
 
 namespace DigitalParadox.Parsing.CommandLineParser
 {

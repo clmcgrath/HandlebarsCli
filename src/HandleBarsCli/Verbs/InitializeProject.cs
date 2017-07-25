@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using CommandLine;
-using Dependency = Microsoft.Practices.Unity.DependencyAttribute;
 using DigitalParadox.HandlebarsCli.Interfaces;
 
 namespace DigitalParadox.HandlebarsCli.Verbs

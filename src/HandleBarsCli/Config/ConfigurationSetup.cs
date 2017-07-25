@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DigitalParadox.HandlebarsCli.Models;
-using DigitalParadox.HandlebarsCli.Plugins;
 using DigitalParadox.HandlebarsCli.Utilities;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity;
+using DigitalParadox.HandlebarsCli.Plugins;
 
 namespace DigitalParadox.HandlebarsCli.Config
 {

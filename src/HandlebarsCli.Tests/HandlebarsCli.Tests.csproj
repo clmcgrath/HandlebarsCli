@@ -4,4 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.3.0-beta3-build3705" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HandlebarsCli.HandlebarsTemplateProcessor\HandlebarsCli.HandlebarsTemplateProcessor.csproj" />
+    <ProjectReference Include="..\HandlebarsCli.Interfaces\HandlebarsCli.Interfaces.csproj" />
+    <ProjectReference Include="..\HandlebarsCli.Plugins\HandlebarsCli.Plugins.csproj" />
+  </ItemGroup>
+
 </Project>

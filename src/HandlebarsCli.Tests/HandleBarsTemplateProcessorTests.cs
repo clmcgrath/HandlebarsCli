@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using DigitalParadox.HandlebarsCli.Interfaces;
 using DigitalParadox.HandlebarsCli.Plugins;
-using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
 using Xunit;
+using DigitalParadox.HandlebarsCli.Interfaces;
+using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
 
 namespace DigitalParadox.HandlebarsCli.Tests
 {

@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using DigitalParadox.HandlebarsCli.Interfaces;
-using Microsoft.Practices.Unity;
 
 namespace DigitalParadox.HandlebarsCli.Models
 {

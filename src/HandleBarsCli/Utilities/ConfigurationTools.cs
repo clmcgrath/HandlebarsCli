@@ -1,17 +1,15 @@
 ﻿using System.IO;
-using DigitalParadox.HandlebarsCli.Interfaces;
-using DigitalParadox.Parsers.Yaml;
-
 using Configuration = DigitalParadox.HandlebarsCli.Models.Configuration;
+using DigitalParadox.Parsers.Yaml;
 
 namespace DigitalParadox.HandlebarsCli.Utilities
 {
     public class ConfigurationTools
     {
         private readonly IYamlParser _parser;
-        private readonly ITemplateProcessorOptions _options;
+        private readonly Interfaces.ITemplateProcessorOptions _options;
 
-        public ConfigurationTools(IYamlParser parser, ITemplateProcessorOptions options)
+        public ConfigurationTools(IYamlParser parser, Interfaces.ITemplateProcessorOptions options)
         {
             _parser = parser;
             _options = options;

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using Xunit;
+using DigitalParadox.Parsers.TemplateProcessor;
 using HandlebarsCli.HandlebarsTemplateProcessor;
+using Xunit;
+
 using HandlebarsCli.Plugins;
-using HandlebarsCli.Interfaces;
 
 namespace HandlebarsCli.Tests
 {
@@ -11,6 +12,7 @@ namespace HandlebarsCli.Tests
         [Fact]
         void TemplateProcessorReturnsValidTemplate()
         {
+            // ReSharper disable once UnusedVariable
             ITemplateProcessor processor = new HandleBarsTemplateProcessor(new List<IHandlebarsHelper>(), new HandlebarsProcessorOptions( new ViewOptions()) );
         }
     }

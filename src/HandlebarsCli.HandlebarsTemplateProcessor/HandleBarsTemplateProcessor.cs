@@ -1,12 +1,12 @@
-﻿using DigitalParadox.HandlebarsCli.Plugins;
-using DigitalParadox.HandlebarsCli.Interfaces;
-using HandlebarsDotNet;
-using Microsoft.Practices.ObjectBuilder2;
+﻿
+
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using DigitalParadox.Parsers.TemplateProcessor;
 using HandlebarsCli.Plugins;
-using HandlebarsCli.Interfaces;
+using HandlebarsDotNet;
+using Microsoft.Practices.ObjectBuilder2;
 
 namespace HandlebarsCli.HandlebarsTemplateProcessor
 {
@@ -93,7 +93,7 @@ namespace HandlebarsCli.HandlebarsTemplateProcessor
                 File.WriteAllText(Path.Combine(target.FullName, "main_template.hbs"), "My New Project Template\n {{#names}} \n\t{{> name }} \n{{/names}}");
 
                 File.WriteAllText(Path.Combine(target.FullName, "Views\\name.hbs"), "Hello {{this}}!! \n This Is An Example View ");
-                var data = new {names = new[] {"Chris", "Mike", "Tony"}};
+                //var data = new {names = new[] {"Chris", "Mike", "Tony"}};
 
                 //File.WriteAllText(Path.Combine(target.FullName, "data.yaml"), new Serializer().Serialize(data));
                 //File.WriteAllText(Path.Combine(target.FullName, "data.json"), JsonConvert.SerializeObject(data));

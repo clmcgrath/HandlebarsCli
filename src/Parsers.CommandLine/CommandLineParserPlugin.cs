@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using CommandLine;
-using HandlebarsCli.Interfaces;
+using DigitalParadox.Parsers.CommandLine;
 using DigitalParadox.Utilities.AssemblyLoader;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity;
 
-namespace DigitalParadox.Parsing.CommandLineParser
+namespace Parsers.CommandLine
 {
     public  class CommandLineParserPlugin : UnityContainerExtension
     {

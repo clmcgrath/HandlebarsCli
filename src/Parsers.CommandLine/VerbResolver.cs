@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using CommandLine;
 using CommandLine.Text;
-using DigitalParadox.HandlebarsCli.Interfaces;
-using HandlebarsCli.Interfaces;
+using DigitalParadox.Parsers.CommandLine;
 
-namespace DigitalParadox.Parsing.CommandLineParser
+namespace Parsers.CommandLine
 {
     public class VerbResolver : IVerbResolver
     {
         private readonly Parser _parser;
         private readonly IEnumerable<IVerbDefinition> _verbs;
-        private readonly ILog _logger;
 
         public VerbResolver(Parser parser, IEnumerable<IVerbDefinition> verbs)
         {
@@ -26,7 +24,7 @@ namespace DigitalParadox.Parsing.CommandLineParser
             IVerbDefinition command = null;
 
             var parse =
-                _parser.ParseArguments(args, _verbs.Select(q => q.GetType()).ToArray<Type>());
+                _parser.ParseArguments(args, _verbs.Select(q => q.GetType()).ToArray());
                 
 
                 parse.WithParsed(options =>

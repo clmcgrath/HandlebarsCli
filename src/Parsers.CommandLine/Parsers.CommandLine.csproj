@@ -6,13 +6,18 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.1.4-beta2" />
-    <PackageReference Include="DigitalParadox.Parsers" Version="1.0.2" />
+    <PackageReference Include="DigitalParadox.Parsers" Version="1.0.6" />
     <PackageReference Include="DigitalParadox.Utilities.AssemblyLoader" Version="1.0.14" />
     <PackageReference Include="Unity" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HandlebarsCli.Interfaces\HandlebarsCli.Interfaces.csproj" />
+    <Reference Include="DigitalParadox.Logging">
+      <HintPath>C:\Users\christopher.mcgrath\.nuget\packages\digitalparadox.logging\1.0.12\lib\netstandard2.0\DigitalParadox.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalParadox.Plugins">
+      <HintPath>C:\Users\christopher.mcgrath\.nuget\packages\digitalparadox.plugins\1.0.14\lib\netstandard2.0\DigitalParadox.Plugins.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

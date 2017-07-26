@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using CommandLine;
-using HandlebarsCli.Interfaces;
-using HandlebarsCli.Models;
+using DigitalParadox.Parsers.CommandLine;
+using HandleBarsCLI.Models;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.ServiceLocation;
 
-namespace HandlebarsCli.Verbs.BuiltIn
+namespace HandleBarsCLI.Verbs
 {
     [Verb("settings", HelpText = "Process handlebars Template")]
     public class Settings : IVerbDefinition

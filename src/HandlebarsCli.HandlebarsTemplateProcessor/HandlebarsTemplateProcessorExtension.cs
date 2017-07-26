@@ -1,11 +1,9 @@
-﻿using System.ComponentModel;
-using System.IO;
-
-using Microsoft.Practices.ServiceLocation;
+﻿using System.IO;
+using DigitalParadox.Parsers.Json.Converters;
+using DigitalParadox.Parsers.TemplateProcessor;
 using Microsoft.Practices.Unity;
 using Newtonsoft.Json;
 
-using HandlebarsCli.Interfaces;
 
 namespace HandlebarsCli.HandlebarsTemplateProcessor
 {

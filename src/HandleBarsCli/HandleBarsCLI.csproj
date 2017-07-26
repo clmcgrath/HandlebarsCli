@@ -7,9 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.1.4-beta2" />
-    <PackageReference Include="DigitalParadox.Logging.Serilog" Version="1.0.12" />
-    <PackageReference Include="DigitalParadox.Parsers" Version="1.0.4" />
-    <PackageReference Include="DigitalParadox.Parsers.Yaml" Version="1.0.4" />
+    <PackageReference Include="DigitalParadox.Logging.Serilog" Version="1.0.14" />
+    <PackageReference Include="DigitalParadox.Parsers" Version="1.0.6" />
+    <PackageReference Include="DigitalParadox.Parsers.Yaml" Version="1.0.6" />
+    <PackageReference Include="DigitalParadox.Plugins" Version="1.0.17" />
+    <PackageReference Include="DigitalParadox.Plugins.Loader" Version="1.0.17" />
     <PackageReference Include="HandlebarsDotNet" Version="0.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="Unity" Version="4.0.1" />
@@ -17,9 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HandlebarsCli.HandlebarsTemplateProcessor\HandlebarsCli.HandlebarsTemplateProcessor.csproj" />
-    <ProjectReference Include="..\HandlebarsCli.Interfaces\HandlebarsCli.Interfaces.csproj" />
     <ProjectReference Include="..\HandlebarsCli.Plugins\HandlebarsCli.Plugins.csproj" />
-    <ProjectReference Include="..\Parsers.CommandLine\Parsers.CommandLine.csproj" />
   </ItemGroup>
 
 </Project>

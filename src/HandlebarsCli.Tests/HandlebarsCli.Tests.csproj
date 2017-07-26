@@ -10,8 +10,16 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HandlebarsCli.HandlebarsTemplateProcessor\HandlebarsCli.HandlebarsTemplateProcessor.csproj" />
-    <ProjectReference Include="..\HandlebarsCli.Interfaces\HandlebarsCli.Interfaces.csproj" />
     <ProjectReference Include="..\HandlebarsCli.Plugins\HandlebarsCli.Plugins.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DigitalParadox.Parsers">
+      <HintPath>C:\Users\christopher.mcgrath\.nuget\packages\digitalparadox.parsers\1.0.6\lib\netstandard2.0\DigitalParadox.Parsers.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalParadox.Plugins.Loader">
+      <HintPath>C:\Users\christopher.mcgrath\.nuget\packages\digitalparadox.plugins.loader\1.0.14\lib\netstandard2.0\DigitalParadox.Plugins.Loader.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

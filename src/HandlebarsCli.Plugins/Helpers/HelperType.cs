@@ -1,4 +1,4 @@
-﻿namespace DigitalParadox.HandlebarsCli.Plugins.Helpers
+﻿namespace HandlebarsCli.Plugins.Helpers
 {
     public enum HelperType
     {

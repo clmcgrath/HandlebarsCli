@@ -1,5 +1,4 @@
-﻿using DigitalParadox.HandlebarsCli.Plugins;
-using DigitalParadox.HandlebarsCli.Plugins.Helpers;
+﻿using DigitalParadox.Plugins;
 using HandlebarsCli.Plugins;
 using Xunit;
 

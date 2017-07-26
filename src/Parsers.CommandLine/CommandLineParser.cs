@@ -1,12 +1,8 @@
-﻿using DigitalParadox.HandlebarsCli.Interfaces;
-using HandlebarsCli.Interfaces;
-using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DigitalParadox.Parsers.CommandLine;
 
-namespace DigitalParadox.Parsing.CommandLineParser
+namespace Parsers.CommandLine
 {
     public class CommandLineParser : ICommandLineParser
     {
@@ -16,6 +12,8 @@ namespace DigitalParadox.Parsing.CommandLineParser
         {
             _resolver = resolver;
         }
+
+
         public IVerbDefinition Parse(IEnumerable<string> args)
         {
             return _resolver.Resolve(args);

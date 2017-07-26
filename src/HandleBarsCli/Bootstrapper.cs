@@ -1,12 +1,10 @@
-using HandlebarsCli.Config;
-using HandlebarsCli.HandlebarsTemplateProcessor;
 using DigitalParadox.Logging.Serilog;
 using DigitalParadox.Parsers.Yaml;
-using DigitalParadox.Parsing.CommandLineParser;
+using HandleBarsCLI.Config;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 
-namespace DigitalParadox.HandlebarsCli
+namespace HandleBarsCLI
 {
     public class Bootstrapper : UnityContainer
     {
@@ -16,9 +14,9 @@ namespace DigitalParadox.HandlebarsCli
 
             //external container setup 
             this.AddNewExtension<SerilogPlugin>()
-                .AddNewExtension<HandlebarsTemplateProcessorExtension>()
+                //.AddNewExtension<HandlebarsTemplateProcessorExtension>()
                 .AddNewExtension<YamlUnityExtension>()
-                .AddNewExtension<CommandLineParserPlugin>()
+                //.AddNewExtension<CommandLineParserPlugin>()
                 .AddNewExtension<ConfigurationSetup>()
                 .AddNewExtension<PluginConfiguration>();
 

@@ -2,7 +2,7 @@
 using CommandLine.Infrastructure;
 using Microsoft.Practices.Unity;
 
-namespace DigitalParadox.Parsing.CommandLineParser
+namespace Parsers.CommandLine
 {
 
     public class UnityObjectFactory : IObjectFactory

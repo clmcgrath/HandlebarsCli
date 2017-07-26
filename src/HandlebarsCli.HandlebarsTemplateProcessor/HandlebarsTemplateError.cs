@@ -1,6 +1,5 @@
 ﻿using System;
-using DigitalParadox.HandlebarsCli.Interfaces;
-using HandlebarsCli.Interfaces;
+using DigitalParadox.Parsers.TemplateProcessor;
 
 namespace HandlebarsCli.HandlebarsTemplateProcessor
 {

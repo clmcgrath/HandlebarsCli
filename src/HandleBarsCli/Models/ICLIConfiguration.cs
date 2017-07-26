@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using DigitalParadox.Parsers.TemplateProcessor;
 
-namespace HandlebarsCli.Models
+namespace HandleBarsCLI.Models
 {
     public interface ICLIConfiguration
     {

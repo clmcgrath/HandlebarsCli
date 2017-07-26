@@ -1,9 +1,8 @@
 ﻿using System;
-using DigitalParadox.HandlebarsCli.Interfaces;
+using DigitalParadox.Parsers.CommandLine;
 using Microsoft.Practices.Unity;
-using HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.HandlebarsCli
+namespace HandleBarsCLI
 {
     public class Program
     {

@@ -1,10 +1,9 @@
 ﻿using CommandLine;
-using DigitalParadox.HandlebarsCli.Interfaces;
-using HandlebarsCli.Interfaces;
-using Microsoft.Practices.ServiceLocation;
+using DigitalParadox.Logging;
+using DigitalParadox.Parsers.CommandLine;
 using Microsoft.Practices.Unity;
 
-namespace DigitalParadox.HandlebarsCli.Verbs
+namespace HandleBarsCLI.Verbs
 {
     [Verb("test", HelpText = "Used for debugging purposes")]
     public class TestVerb : IVerbDefinition

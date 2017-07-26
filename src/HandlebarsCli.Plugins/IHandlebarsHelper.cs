@@ -1,6 +1,7 @@
 ﻿using System.IO;
-using HandlebarsCli.Plugins;
-using DigitalParadox.HandlebarsCli.Plugins;
+using DigitalParadox.Plugins;
+using HandlebarsCli.Plugins.Helpers;
+using HandlebarsDotNet;
 
 namespace HandlebarsCli.Plugins
 {

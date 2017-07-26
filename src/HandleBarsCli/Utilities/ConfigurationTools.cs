@@ -1,20 +1,17 @@
 ﻿using System.IO;
-using Configuration = HandlebarsCli.Models.Configuration;
-using DigitalParadox.Parsers.Yaml;
-using HandlebarsCli.Utilities;
-using HandlebarsCli.Interfaces;
+using DigitalParadox.Parsers.Serializers;
+using Configuration = HandleBarsCLI.Models.Configuration;
 
-namespace DigitalParadox.HandlebarsCli.Utilities
+namespace HandleBarsCLI.Utilities
 {
     public class ConfigurationTools
     {
         private readonly IYamlParser _parser;
-        private readonly ITemplateProcessorOptions _options;
 
-        public ConfigurationTools(IYamlParser parser, ITemplateProcessorOptions options)
+
+        public ConfigurationTools(IYamlParser parser)
         {
             _parser = parser;
-            _options = options;
         }
 
         public Configuration LoadAppConfig()

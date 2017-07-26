@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace HandlebarsCli.Utilities
+namespace HandleBarsCLI.Utilities
 {
     public static class HelperExtensions
     {

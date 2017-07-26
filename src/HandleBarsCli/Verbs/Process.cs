@@ -1,15 +1,15 @@
-﻿using System;
+﻿using CommandLine;
+using DigitalParadox.Parsers.CommandLine;
+using DigitalParadox.Parsers.TemplateProcessor;
+using HandleBarsCLI.Models;
+using Microsoft.Practices.ObjectBuilder2;
+using Newtonsoft.Json;
+using System;
 using System.Dynamic;
 using System.IO;
 using System.Text;
-using CommandLine;
-using HandlebarsCli.Models;
-using Microsoft.Practices.ObjectBuilder2;
-using Newtonsoft.Json;
-using DigitalParadox.HandlebarsCli.Interfaces;
-using HandlebarsCli.Interfaces;
 
-namespace HandlebarsCli.Verbs.BuiltIn
+namespace HandleBarsCLI.Verbs
 {
     [Verb("process", HelpText = "Process handlebars Template")]
     public class Process : IVerbDefinition
@@ -20,30 +20,16 @@ namespace HandlebarsCli.Verbs.BuiltIn
 
         public Process(ITemplateProcessor processor, Configuration configuration)
         {
+            Configuration = configuration;
             _processor = processor;
         }
-        
-        public Configuration Configuration { get; set; }
-        
-        public bool Verbose { get; set; }
-        [Option('b', "basedir", Default = @".\", MetaValue = "Path", HelpText = "Base directory to load templates from")]
-        public string TemplateDirectory { get; set; }
-        
-        [Option('i', "input", HelpText = "Input data file, supports json only at this time")]
-        public string InputFile { get; set; }
-
-        [Option('t', "template", SetName = "textTemplate", Required = true)]
-        public string Exception { get; set; }
-
-        [Option('n',"template-name", Required = true, SetName = "FileTemplate", MetaValue = "TEMPLATE NAME", HelpText = "Template Name to use for output, ie pscomment.template or pscomment.hbs")]
-        public string TemplateName { get; set; }
 
         public int Execute()
         {
-            
+
             var path = new FileInfo(Path.Combine(TemplateDirectory, TemplateName));
             var template = File.ReadAllText(path.FullName, Encoding.UTF8);
-            
+
             if (!string.IsNullOrWhiteSpace(InputFile))
             {
                 var datafile = new FileInfo(InputFile);
@@ -61,7 +47,7 @@ namespace HandlebarsCli.Verbs.BuiltIn
             var model = JsonConvert.DeserializeObject<ExpandoObject>(Data);
 
 
-            ITemplateResult  result = _processor.Process(template, model);
+            ITemplateResult result = _processor.Process(template, model);
 
             if (result.HasErrors)
             {
@@ -86,10 +72,25 @@ namespace HandlebarsCli.Verbs.BuiltIn
             return 0;
         }
 
-        public string ViewsDirectory { get; set; }
-
-        public string OutputFile { get; set; }
+        public Configuration Configuration { get; set; }
 
         public string Data { get; set; }
+
+        [Option('t', "template", SetName = "textTemplate", Required = true)]
+        public string Exception { get; set; }
+
+        [Option('i', "input", HelpText = "Input data file, supports json only at this time")]
+        public string InputFile { get; set; }
+
+        public string OutputFile { get; set; }
+        [Option('b', "basedir", Default = @".\", MetaValue = "Path", HelpText = "Base directory to load templates from")]
+        public string TemplateDirectory { get; set; }
+
+        [Option('n', "template-name", Required = true, SetName = "FileTemplate", MetaValue = "TEMPLATE NAME", HelpText = "Template Name to use for output, ie pscomment.template or pscomment.hbs")]
+        public string TemplateName { get; set; }
+
+        public bool Verbose { get; set; }
+
+        public string ViewsDirectory { get; set; }
     }
 }

@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DigitalParadox.Logging" Version="1.0.14" />
+    <PackageReference Include="DigitalParadox.Logging.Serilog" Version="1.0.14" />
+    <PackageReference Include="DigitalParadox.Plugins" Version="1.0.17" />
     <PackageReference Include="DigitalParadox.Utilities.AssemblyLoader" Version="1.0.14" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\HandlebarsCli.Interfaces\HandlebarsCli.Interfaces.csproj" />
+    <PackageReference Include="Handlebars.Net" Version="1.9.0" />
   </ItemGroup>
 
 </Project>

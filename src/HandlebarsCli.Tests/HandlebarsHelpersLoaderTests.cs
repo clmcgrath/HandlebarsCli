@@ -14,17 +14,17 @@ namespace HandlebarsCli.Tests
             Assert.NotEmpty(plugins);
         }
 
-        [Fact]
-        public void BootstrapperResolvesFromAssemblyLoader()
-        {
-            var bootstrapper = new Bootstrapper();
-            bootstrapper.Setup();
-            var plugin = bootstrapper.Resolve(typeof(IHandlebarsHelper), "HelloWorld");
+        //[Fact]
+        //public void BootstrapperResolvesFromAssemblyLoader()
+        //{
+        //    var bootstrapper = new Bootstrapper();
+        //    bootstrapper.Setup();
+        //    var plugin = bootstrapper.Resolve(typeof(IHandlebarsHelper), "HelloWorld");
 
-            Assert.NotNull(plugin);
+        //    Assert.NotNull(plugin);
 
-            Assert.IsType<HelloWorldExamplePlugin>(plugin);
-        }
+        //    Assert.IsType<HelloWorldExamplePlugin>(plugin);
+        //}
 
         [Fact]
         public void HandleBarsPluginRendersText()

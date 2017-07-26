@@ -1,5 +1,6 @@
 ﻿using CommandLine;
 using DigitalParadox.HandlebarsCli.Interfaces;
+using HandlebarsCli.Interfaces;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 

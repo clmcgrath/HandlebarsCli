@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CommandLine;
-using DigitalParadox.HandlebarsCli.Interfaces;
+using HandlebarsCli.Interfaces;
 using DigitalParadox.Utilities.AssemblyLoader;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity;

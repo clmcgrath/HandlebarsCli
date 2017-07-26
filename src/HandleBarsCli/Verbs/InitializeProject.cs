@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using DigitalParadox.HandlebarsCli.Interfaces;
+using HandlebarsCli.Interfaces;
 
 namespace HandlebarsCli.Verbs.BuiltIn
 {

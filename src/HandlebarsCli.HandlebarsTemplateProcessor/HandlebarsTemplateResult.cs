@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DigitalParadox.HandlebarsCli.Interfaces;
+using HandlebarsCli.Interfaces;
 
 namespace HandlebarsCli.HandlebarsTemplateProcessor
 {

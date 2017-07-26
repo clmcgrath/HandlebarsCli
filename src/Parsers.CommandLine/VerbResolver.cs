@@ -4,6 +4,7 @@ using System.Linq;
 using CommandLine;
 using CommandLine.Text;
 using DigitalParadox.HandlebarsCli.Interfaces;
+using HandlebarsCli.Interfaces;
 
 namespace DigitalParadox.Parsing.CommandLineParser
 {

@@ -4,7 +4,8 @@ using System.IO;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 using Newtonsoft.Json;
-using DigitalParadox.HandlebarsCli.Interfaces;
+
+using HandlebarsCli.Interfaces;
 
 namespace HandlebarsCli.HandlebarsTemplateProcessor
 {

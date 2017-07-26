@@ -1,6 +1,7 @@
 ﻿using System;
 using DigitalParadox.HandlebarsCli.Interfaces;
 using Microsoft.Practices.Unity;
+using HandlebarsCli.Interfaces;
 
 namespace DigitalParadox.HandlebarsCli
 {

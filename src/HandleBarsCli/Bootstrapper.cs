@@ -1,5 +1,5 @@
-using DigitalParadox.HandlebarsCli.Config;
-using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
+using HandlebarsCli.Config;
+using HandlebarsCli.HandlebarsTemplateProcessor;
 using DigitalParadox.Logging.Serilog;
 using DigitalParadox.Parsers.Yaml;
 using DigitalParadox.Parsing.CommandLineParser;

@@ -2,7 +2,7 @@
 using System.Linq;
 using DigitalParadox.HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
+namespace HandlebarsCli.HandlebarsTemplateProcessor
 {
     public class HandlebarsTemplateResult : ITemplateResult
     {

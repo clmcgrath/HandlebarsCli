@@ -1,10 +1,10 @@
 ﻿using System.IO;
-using DigitalParadox.HandlebarsCli.Plugins.Helpers;
-using HandlebarsDotNet;
+using HandlebarsCli.Plugins;
+using DigitalParadox.HandlebarsCli.Plugins;
 
-namespace DigitalParadox.HandlebarsCli.Plugins
+namespace HandlebarsCli.Plugins
 {
-    public interface IHandlebarsHelper : IProvider
+    public interface IHandlebarsHelper : IPlugin
     {
         string Name { get; set; }
         HelperType Type { get; set; }

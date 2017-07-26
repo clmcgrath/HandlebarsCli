@@ -1,6 +1,6 @@
-﻿namespace DigitalParadox.HandlebarsCli.Plugins
+﻿namespace HandlebarsCli.Plugins
 {
-    public interface IProvider
+    public interface IPlugin
     {
     }
 }

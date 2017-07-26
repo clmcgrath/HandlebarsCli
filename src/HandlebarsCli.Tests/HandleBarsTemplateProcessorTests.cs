@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using DigitalParadox.HandlebarsCli.Plugins;
 using Xunit;
-using DigitalParadox.HandlebarsCli.Interfaces;
-using DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor;
+using HandlebarsCli.HandlebarsTemplateProcessor;
+using HandlebarsCli.Plugins;
+using HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.HandlebarsCli.Tests
+namespace HandlebarsCli.Tests
 {
     public class HandleBarsTemplateProcessorTests
     {

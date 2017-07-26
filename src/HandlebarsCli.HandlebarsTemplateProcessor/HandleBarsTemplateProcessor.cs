@@ -5,9 +5,10 @@ using Microsoft.Practices.ObjectBuilder2;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
+using HandlebarsCli.Plugins;
+using HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
+namespace HandlebarsCli.HandlebarsTemplateProcessor
 {
 
     public class HandleBarsTemplateProcessor : ITemplateProcessor

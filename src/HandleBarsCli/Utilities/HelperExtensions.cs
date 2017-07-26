@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace DigitalParadox.HandlebarsCli.Utilities
+namespace HandlebarsCli.Utilities
 {
     public static class HelperExtensions
     {

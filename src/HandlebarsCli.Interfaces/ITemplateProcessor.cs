@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigitalParadox.HandlebarsCli.Interfaces
+namespace HandlebarsCli.Interfaces
 {
     public interface ITemplateProcessor
     {

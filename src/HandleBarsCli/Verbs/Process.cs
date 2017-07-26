@@ -3,12 +3,13 @@ using System.Dynamic;
 using System.IO;
 using System.Text;
 using CommandLine;
-using DigitalParadox.HandlebarsCli.Models;
+using HandlebarsCli.Models;
 using Microsoft.Practices.ObjectBuilder2;
 using Newtonsoft.Json;
 using DigitalParadox.HandlebarsCli.Interfaces;
+using HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.HandlebarsCli.Verbs
+namespace HandlebarsCli.Verbs.BuiltIn
 {
     [Verb("process", HelpText = "Process handlebars Template")]
     public class Process : IVerbDefinition

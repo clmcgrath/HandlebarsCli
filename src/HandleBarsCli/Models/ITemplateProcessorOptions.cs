@@ -1,4 +1,4 @@
-﻿namespace DigitalParadox.HandlebarsCli.Models
+﻿namespace HandlebarsCli.Models
 {
     public interface ITemplateProcessorOptions
     {

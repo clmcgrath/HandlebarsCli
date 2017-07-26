@@ -1,8 +1,8 @@
-﻿using DigitalParadox.HandlebarsCli.Plugins;
+﻿using HandlebarsCli.Plugins;
 
-namespace DigitalParadox.HandlebarsCli.Interfaces
+namespace HandlebarsCli.Interfaces
 {
-    public interface IVerbDefinition : IProvider
+    public interface IVerbDefinition : IPlugin
     {
         bool Verbose { get; set; }
         int Execute();

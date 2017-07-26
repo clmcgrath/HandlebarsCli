@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DigitalParadox.HandlebarsCli.Models
+namespace HandlebarsCli.Models
 {
     public interface ICLIConfiguration
     {

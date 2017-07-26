@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
-using DigitalParadox.HandlebarsCli.Models;
-using DigitalParadox.HandlebarsCli.Utilities;
+using HandlebarsCli.Models;
+using HandlebarsCli.Utilities;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity;
-using DigitalParadox.HandlebarsCli.Plugins;
+using HandlebarsCli.Plugins;
+using DigitalParadox.HandlebarsCli.Utilities;
 
-namespace DigitalParadox.HandlebarsCli.Config
+namespace HandlebarsCli.Config
 {
     public class PluginConfiguration : UnityContainerExtension
     {

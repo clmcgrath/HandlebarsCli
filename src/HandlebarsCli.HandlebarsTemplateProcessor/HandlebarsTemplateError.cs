@@ -1,7 +1,7 @@
 ﻿using System;
 using DigitalParadox.HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
+namespace HandlebarsCli.HandlebarsTemplateProcessor
 {
     public class HandlebarsTemplateError: ITemplateError
     {

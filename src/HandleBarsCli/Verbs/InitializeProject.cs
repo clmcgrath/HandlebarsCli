@@ -2,7 +2,7 @@
 using System.IO;
 using DigitalParadox.HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.HandlebarsCli.Verbs
+namespace HandlebarsCli.Verbs.BuiltIn
 {
     [Verb("init", HelpText = "Process handlebars Template")]
     public class InitializeProject : IVerbDefinition

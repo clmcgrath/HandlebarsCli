@@ -6,7 +6,7 @@ using Microsoft.Practices.Unity;
 using Newtonsoft.Json;
 using DigitalParadox.HandlebarsCli.Interfaces;
 
-namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
+namespace HandlebarsCli.HandlebarsTemplateProcessor
 {
     public class HandlebarsTemplateProcessorExtension : UnityContainerExtension
     {

@@ -1,8 +1,9 @@
 ﻿using DigitalParadox.HandlebarsCli.Plugins;
 using DigitalParadox.HandlebarsCli.Plugins.Helpers;
+using HandlebarsCli.Plugins;
 using Xunit;
 
-namespace DigitalParadox.HandlebarsCli.Tests
+namespace HandlebarsCli.Tests
 {
     public class HandlebarsHelpersLoaderTests
     {

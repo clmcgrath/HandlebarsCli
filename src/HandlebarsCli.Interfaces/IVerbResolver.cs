@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DigitalParadox.HandlebarsCli.Interfaces
+namespace HandlebarsCli.Interfaces
 {
     public interface IVerbResolver
     {

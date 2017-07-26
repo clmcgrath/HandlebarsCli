@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
+namespace HandlebarsCli.HandlebarsTemplateProcessor
 {
     public class FileSystemInfoConverter<TFileSystemInfo> : JsonConverter where TFileSystemInfo : FileSystemInfo
     {

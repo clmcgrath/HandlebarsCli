@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DigitalParadox.HandlebarsCli.Interfaces
+namespace HandlebarsCli.Interfaces
 {
     public interface ITemplateError
     {

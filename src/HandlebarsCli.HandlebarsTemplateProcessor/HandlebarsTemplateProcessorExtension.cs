@@ -11,7 +11,7 @@ namespace HandlebarsCli.HandlebarsTemplateProcessor
     {
         protected override void Initialize()
         {
-            Container.RegisterType<ITemplateProcessor, HandleBarsTemplateProcessor>();
+            //Container.RegisterType<ITemplateProcessor, HandleBarsTemplateProcessor>();
             Container.RegisterType<ITemplateProcessorOptions, HandlebarsProcessorOptions>();
         }
 

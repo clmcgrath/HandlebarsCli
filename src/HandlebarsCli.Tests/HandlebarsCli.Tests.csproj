@@ -18,7 +18,7 @@
       <HintPath>C:\Users\christopher.mcgrath\.nuget\packages\digitalparadox.parsers\1.0.6\lib\netstandard2.0\DigitalParadox.Parsers.dll</HintPath>
     </Reference>
     <Reference Include="DigitalParadox.Plugins.Loader">
-      <HintPath>C:\Users\christopher.mcgrath\.nuget\packages\digitalparadox.plugins.loader\1.0.14\lib\netstandard2.0\DigitalParadox.Plugins.Loader.dll</HintPath>
+      <HintPath>C:\Users\christopher.mcgrath\.nuget\packages\digitalparadox.plugins.loader\1.0.17\lib\netstandard2.0\DigitalParadox.Plugins.Loader.dll</HintPath>
     </Reference>
   </ItemGroup>
 

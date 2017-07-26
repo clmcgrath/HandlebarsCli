@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Reflection;
 using DigitalParadox.Parsers.Serializers;
 using Configuration = HandleBarsCLI.Models.Configuration;
 
@@ -16,14 +17,16 @@ namespace HandleBarsCLI.Utilities
 
         public Configuration LoadAppConfig()
         {
-            
+            var configDirectory = Path.Combine(typeof(Program).Assembly.ToDirectoryPath(), "config.yaml");
 
-            var yaml = File.ReadAllText(Path.Combine(typeof(Program).Assembly.ToDirectoryPath(),  "config.yaml"));
+
+            var yaml = File.ReadAllText(configDirectory);
      
             var parsed = _parser.Deserialize<Configuration>(yaml);
 
             return parsed;
         }
+
 
 
 

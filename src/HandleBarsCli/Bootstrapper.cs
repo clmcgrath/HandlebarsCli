@@ -1,5 +1,6 @@
 using DigitalParadox.Logging.Serilog;
 using DigitalParadox.Parsers.Yaml;
+using HandlebarsCli.HandlebarsTemplateProcessor;
 using HandleBarsCLI.Config;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
@@ -14,7 +15,7 @@ namespace HandleBarsCLI
 
             //external container setup 
             this.AddNewExtension<SerilogPlugin>()
-                //.AddNewExtension<HandlebarsTemplateProcessorExtension>()
+                .AddNewExtension<HandlebarsTemplateProcessorExtension>()
                 .AddNewExtension<YamlUnityExtension>()
                 //.AddNewExtension<CommandLineParserPlugin>()
                 .AddNewExtension<ConfigurationSetup>()

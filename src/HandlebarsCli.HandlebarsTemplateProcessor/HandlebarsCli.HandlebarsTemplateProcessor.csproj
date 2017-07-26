@@ -4,6 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1705;</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="DigitalParadox.Parsers.Json" Version="1.0.6" />
     <PackageReference Include="Handlebars.Net" Version="1.9.0" />

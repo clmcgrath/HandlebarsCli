@@ -2,7 +2,7 @@
 using CommandLine.Infrastructure;
 using Microsoft.Practices.Unity;
 
-namespace Parsers.CommandLine
+namespace Parsers.CommandLine.ObjectFactory
 {
 
     public class UnityObjectFactory : IObjectFactory
@@ -16,5 +16,4 @@ namespace Parsers.CommandLine
         public T Resolve<T>() => _container.Resolve<T>();
         public object Resolve(Type type) => _container.Resolve(type);
     }
-
 }

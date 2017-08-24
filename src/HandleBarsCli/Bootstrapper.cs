@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using DigitalParadox.Logging.Serilog;
 using DigitalParadox.Parsers.Yaml;
 using HandlebarsCli.HandlebarsTemplateProcessor;
@@ -20,7 +21,7 @@ namespace HandleBarsCLI
                 //.AddNewExtension<CommandLineParserPlugin>()
                 .AddNewExtension<ConfigurationSetup>()
                 .AddNewExtension<PluginConfiguration>();
-
+            
         }
     }
 }

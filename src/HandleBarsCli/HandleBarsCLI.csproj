@@ -14,9 +14,11 @@
     <PackageReference Include="DigitalParadox.Logging.Serilog" Version="1.0.14" />
     <PackageReference Include="DigitalParadox.Parsers" Version="1.0.6" />
     <PackageReference Include="DigitalParadox.Parsers.Yaml" Version="1.0.6" />
-    <PackageReference Include="DigitalParadox.Plugins" Version="1.0.17" />
-    <PackageReference Include="DigitalParadox.Plugins.Loader" Version="1.0.17" />
-    <PackageReference Include="HandlebarsDotNet" Version="0.0.3" />
+    <PackageReference Include="DigitalParadox.Plugins" Version="1.0.18" />
+    <PackageReference Include="DigitalParadox.Plugins.Loader" Version="1.0.18" />
+    <PackageReference Include="Handlebars.Net" Version="1.9.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="Unity" Version="4.0.1" />
   </ItemGroup>

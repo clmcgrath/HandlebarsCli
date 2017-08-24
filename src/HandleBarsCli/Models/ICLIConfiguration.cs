@@ -6,7 +6,7 @@ namespace HandleBarsCLI.Models
     public interface ICLIConfiguration
     {
         
-        ICollection<string> PluginDirectories { get; set; }
+        Dictionary<string, string> PluginDirectories { get; set; }
         ITemplateProcessorOptions ProcessorOptions { get; set; }
     }
 
@@ -17,7 +17,7 @@ namespace HandleBarsCLI.Models
             ProcessorOptions = processorOptions;
         }
 
-        public ICollection<string> PluginDirectories { get; set; }
+        public Dictionary<string,string> PluginDirectories { get; set; }
       
         public ITemplateProcessorOptions ProcessorOptions { get; set; }
     }
